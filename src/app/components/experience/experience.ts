@@ -1,109 +1,141 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+
+interface Experience {
+  id: string;
+  title: string;
+  company: string;
+  duration: string;
+  shortDescription: string;
+  logo: string;
+  presentation: string;
+  context: string;
+  objectives: string;
+  team: string;
+  methodology: string;
+  technologies: string[];
+  technicalDetails: string;
+  mainMissions: string[];
+  skillsAcquired: string[];
+}
 
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './experience.html',
   styleUrl: './experience.css',
 })
 export class ExperienceComponent {
-  isDisplayTel = false;
-  isDisplayMail = false;
-  displayCertificates = true;
-
-  // Profile contact info
-  phone = '07 58 62 40 77';
-  email = 'alikhlifi.kh@gmail.com';
-  linkedinUrl = 'https://www.linkedin.com/in/ali-khlifi-77b60a148/';
-  githubUrl = 'https://github.com/Ali-Khlifi';
-
-  // About text
-  aboutText = `Extrêmement motivé pour développer constamment mes compétences et évoluer professionnellement. 
-    Je suis confiant dans ma capacité à proposer des idées innovantes pour élaborer des applications Web 
-    de plus en plus performantes.`;
-
-  // Experiences
-  experiences = [
+  experiences: Experience[] = [
     {
-      title: 'Développeur Web',
-      duration: 'Mars - Septembre 2022',
-      description: [
-        'Participation au développement d\'une application web dédiée à la gestion des appels d\'urgence pour les préfectures',
-        'Développement des services Web type RESTful (JAX-RS), implémentation RESTEasy avec Java',
-        'Développement des nouvelles fonctionnalités et correction de bugs : création des formulaires, manipulation de fichiers, gestion des notifications'
+      id: 'coexya-mobilite-aix',
+      title: 'Projet Mobilité Métropole Aix en Marseille-Provence',
+      company: 'COEXYA',
+      duration: 'Depuis mars 2025',
+      shortDescription: 'Participation à la conception et à la mise en oeuvre de la plateforme de services (PFS), dédiée aux solutions de Mobility as a Service (MaaS).',
+      logo: 'assets/img/LogoCoexya.png',
+      presentation: 'Projet Mobilité Métropole Aix en Marseille-Provence',
+      context: 'COEXYA cherche à moderniser ses outils de gestion des campagnes marketing avec une plateforme intégrée et performante.',
+      objectives: 'Créer une plateforme complète pour gérer l\'automatisation marketing, le tracking de performances et l\'analytique.',
+      team: 'Chef de projet, 2 développeurs fullstack',
+      methodology: 'Agile, sprints de 2 semaines',
+      technologies: ['Angular', 'Java Spring Boot', 'PostgreSQL', 'Docker', 'REST API', 'Analytics'],
+      technicalDetails: 'Application fullstack avec architecture modulaire. Intégration de systèmes de reporting time-real et dashboards analytiques.',
+      mainMissions: [
+        'Développement des composants Angular pour l\'interface de gestion des campagnes',
+        'Création des APIs RESTful pour l\'automation marketing',
+        'Mise en place des dashboards analytiques',
+        'Intégration des systèmes de tracking et reporting'
+      ],
+      skillsAcquired: [
+        'Développement fullstack Angular/Java Spring',
+        'Systèmes de reporting et analytics',
+        'Gestion de projet Agile',
+        'Architecture scalable'
       ]
     },
     {
-      title: 'Développeur WebSIG',
-      duration: 'Janvier - Février 2022',
-      description: [
-        'Développement d\'une application web pour la gestion des ressources en eau d\'une agglomération urbaine',
-        'Conception et mise en œuvre d\'une base de données relationnelle',
-        'Développement d\'une interface utilisateur responsive'
+      id: 'coexya-hdf-mobilite',
+      title: 'Projet Haut de France Mobilité',
+      company: 'COEXYA',
+      duration: '1 an et 8 mois',
+      shortDescription: 'Contribution à la refonte de PassPass, plateforme web et mobile de vente de titres de transport et d\'abonnements à destination du grand public.',
+      logo: 'assets/img/LogoCoexya.png',
+      presentation: 'Projet Haut de France Mobilité',
+      context: 'COEXYA a besoin d\'une solution moderne pour gérer les accès utilisateurs, les permissions et les rôles au sein de ses clients.',
+      objectives: 'Développer une application web complète pour simplifier la gestion des droits d\'accès et des authentifications.',
+      team: 'Chef de projet, 3 développeurs',
+      methodology: 'Agile, sprints de 1 semaine',
+      technologies: ['Angular', 'Java Spring Boot', 'PostgreSQL', 'OAuth2', 'JWT', 'Docker', 'Kubernetes'],
+      technicalDetails: 'Application sécurisée avec authentification OAuth2 et gestion des tokens JWT. Architecture microservices conteneurisée.',
+      mainMissions: [
+        'Développement de l\'interface de gestion des utilisateurs et rôles',
+        'Implémentation du système d\'authentification OAuth2',
+        'Gestion des permissions et du contrôle d\'accès',
+        'Mise en place de tests de sécurité'
+      ],
+      skillsAcquired: [
+        'Sécurité web et authentification',
+        'Gestion des permissions et rôles',
+        'Architecture microservices',
+        'Gestion d\'équipe en agile'
       ]
     },
     {
-      title: 'Chargé d\'études SIG',
-      duration: '2018 - 2020',
-      description: [
-        'Développement des scripts d\'automatisation des processus SIG avec Python',
-        'Mise en place d\'un suivi graphique des projets (automatisation des mises à jour des données d\'entrées rafraichies de façon hebdomadaire)'
+      id: 'smile-skillquiz',
+      title: 'Projet SkillQuiz',
+      company: 'SMILE',
+      duration: '6 mois',
+      shortDescription: 'Plateforme d\'évaluation des compétences permettant aux utilisateurs de tester et valider leurs connaissances à travers des quizz interactifs.',
+      logo: 'assets/img/Logo_Smile.png',
+      presentation: 'Projet SkillQuiz',
+      context: 'SMILE, cabinet de conseil en technologies, modernise ses outils internes de recrutement avec une application web complète.',
+      objectives: 'Refondre l\'application existante avec Angular et Java Spring pour améliorer l\'expérience utilisateur et les performances.',
+      team: 'Chef de projet, 2 développeurs',
+      methodology: 'Agile, sprints de 2 semaines',
+      technologies: ['Angular', 'Java Spring Boot', 'PostgreSQL', 'Docker', 'REST API'],
+      technicalDetails: 'Application full stack avec architecture monolithique. Intégration de formulaires dynamiques, gestion d\'authentification, et tableaux de bord analytiques.',
+      mainMissions: [
+        'Développement des composants Angular pour l\'interface de recrutement',
+        'Création des APIs RESTful avec Spring Boot',
+        'Mise en place de la gestion des candidatures et du suivi',
+        'Tests unitaires et d\'intégration'
+      ],
+      skillsAcquired: [
+        'Développement full stack Angular/Java Spring',
+        'Gestion de projet Agile',
+        'Architecture REST',
+        'Bonnes pratiques de développement web'
+      ]
+    },
+    {
+      id: 'atolcd-tnauu',
+      title: 'Projet TNAUU',
+      company: 'ATOLCD',
+      duration: '6 mois',
+      shortDescription: 'Développement d\'une solution complète de gestion d\'infrastructure et d\'optimisation des ressources pour améliorer la performance des systèmes d\'information.',
+      logo: 'assets/img/atolcd.png',
+      presentation: 'Projet TNAUU - Gestion d\'Infrastructure Optimisée',
+      context: 'ATOLCD cherche à moderniser sa gestion des infrastructures informatiques avec une solution intégrée et performante.',
+      objectives: 'Développer une plateforme complète pour monitorer et optimiser les ressources informatiques en temps réel.',
+      team: 'Chef de projet, 2 développeurs fullstack',
+      methodology: 'Agile, sprints de 2 semaines',
+      technologies: ['Angular', 'Java Spring Boot', 'PostgreSQL', 'Docker', 'REST API', 'Monitoring'],
+      technicalDetails: 'Application fullstack avec architecture modulaire. Intégration de systèmes de monitoring temps-réel et dashboards d\'analytique avancée.',
+      mainMissions: [
+        'Développement des interfaces de gestion d\'infrastructure',
+        'Création des APIs RESTful pour le monitoring',
+        'Mise en place des dashboards de performance',
+        'Intégration des systèmes d\'alerte et de reporting'
+      ],
+      skillsAcquired: [
+        'Développement fullstack Angular/Java Spring',
+        'Systèmes de monitoring et optimisation',
+        'Architecture scalable',
+        'Gestion de projet Agile'
       ]
     }
   ];
-
-  // Skills
-  skills = [
-    {
-      category: 'Programmation',
-      items: ['Java', 'JavaScript, HTML, CSS', 'Python, SQL', 'Vue.js', 'Angular', 'Spring Boot']
-    },
-    {
-      category: 'Modélisation / SGBD',
-      items: ['PostgreSQL', 'SQLite', 'UML']
-    },
-    {
-      category: 'Environnement technique',
-      items: ['Linux', 'Git/GitHub', 'Docker', 'IntelliJ, VSCode']
-    },
-    {
-      category: 'Projets réalisés',
-      items: [
-        'Développement d\'une application métier pour la gestion des ressources en eau de la ville de Zaghouan.',
-        'Participation au développement d\'une solution SIG permettant de visualiser la mobilité vélo à Toulouse et à Lyon.'
-      ]
-    }
-  ];
-
-  // Formation
-  education = [
-    {
-      title: 'Master 2 Informatique - technologies web',
-      duration: '2022 - 2023',
-      logo: 'assets/img/logo.png'
-    },
-    {
-      title: 'Master 2 Géomatique',
-      duration: '2021 - 2022',
-      logo: 'assets/img/ensat.png'
-    },
-    {
-      title: 'Maîtrise en Géosciences et environnement',
-      duration: '2020 - 2021',
-      logo: 'assets/img/univ-lorraine.png'
-    }
-  ];
-
-  // Certificates
-  certificates = [
-    'Programmation avec Java - CODEGYM',
-    'Databases and SQL - IBM',
-    'Data Analysis with Python - UDACITY'
-  ];
-
-  toggleCertificates() {
-    this.displayCertificates = !this.displayCertificates;
-  }
 }
