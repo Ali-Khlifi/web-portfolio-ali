@@ -1,0 +1,30 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <!-- Menu Toggle Button (Mobile) -->
+    <button class="navbar-toggle" (click)="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <ul class="navbar-menu" [class.active]="menuOpen">
+      <li *ngFor="let item of navItems">
+        <a [routerLink]="item.link" (click)="menuOpen = false">
+          {{ item.name }}
+        </a>
+      </li>
+    </ul>
+
+    <!-- Search -->
+    <div class="navbar-search">
+      <input
+        type="text"
+        placeholder="Recherche..."
+        [(ngModel)]="searchValue"
+        (input)="onSearchInput(searchValue)"
+        class="search-input"
+      >
+    </div>
+  </div>
+</nav>
