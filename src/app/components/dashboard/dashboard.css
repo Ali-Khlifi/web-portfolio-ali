@@ -1,0 +1,274 @@
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+  color: #333;
+  padding: 60px 40px;
+}
+
+/* Hero Section */
+.hero-section {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.text-section {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  color: #1a1a1a;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 0 0 40px 0;
+  color: #666;
+  max-width: 500px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #5fd45f 0%, #4abc4a 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(95, 212, 95, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(95, 212, 95, 0.4);
+  background: linear-gradient(135deg, #6ae56a 0%, #59d459 100%);
+}
+
+/* Photo Section */
+.photo-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px;
+}
+
+.profile-photo {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(95, 212, 95, 0.5);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+  transform: scale(1.05);
+}
+
+/* Companies Section */
+.companies-section {
+  max-width: 1200px;
+  margin: 0 auto 100px;
+  text-align: center;
+}
+
+.companies-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 40px 0;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.companies-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.company-link {
+  padding: 12px 30px;
+  background: transparent;
+  border: 2px solid #333;
+  border-radius: 6px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.company-link:hover {
+  background: #333;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Contacts Section */
+.contacts-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contacts-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  color: #1a1a1a;
+}
+
+.contacts-description {
+  font-size: 1.1rem;
+  color: #999;
+  margin: 0 0 60px 0;
+  line-height: 1.6;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contacts-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  min-width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px);
+}
+
+.contact-card-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  transition: all 0.3s ease;
+}
+
+.contact-card-icon svg {
+  width: 50px;
+  height: 50px;
+}
+
+.cv-icon {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+}
+
+.email-icon {
+  background: #000;
+  color: white;
+}
+
+.linkedin-icon {
+  background: linear-gradient(135deg, #0077b5 0%, #00609d 100%);
+  color: white;
+}
+
+.contact-card:hover .contact-card-icon {
+  transform: scale(1.1);
+}
+
+.contact-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-card-title:hover {
+  color: #5fd45f;
+}
+
+.contact-card-text {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 0;
+  word-break: break-word;
+  max-width: 200px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 40px 20px;
+  }
+
+  .hero-content {
+    gap: 40px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .profile-photo {
+    width: 250px;
+    height: 250px;
+  }
+
+  .companies-container {
+    gap: 40px;
+  }
+
+  .contacts-title {
+    font-size: 2rem;
+  }
+
+  .contacts-container {
+    gap: 40px;
+  }
+
+  .contact-card-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .contact-card-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+}
