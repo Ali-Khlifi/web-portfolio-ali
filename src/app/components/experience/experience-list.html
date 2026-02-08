@@ -1,0 +1,25 @@
+<div class="experience-container">
+  <!-- Intro Section -->
+  <section class="intro-section">
+    <h1 class="intro-title">Mes Expériences</h1>
+    <p class="intro-text">{{ introText }}</p>
+  </section>
+
+  <!-- Experiences Grid -->
+  <section class="experiences-section">
+    <div class="experiences-grid">
+      <a *ngFor="let exp of experiences" 
+         [routerLink]="['/experience', exp.id]"
+         class="experience-card">
+        <div class="card-image-wrapper">
+          <img [src]="exp.logo" [alt]="exp.company" class="card-image">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">{{ exp.title }}</h3>
+          <p class="card-duration">{{ exp.duration }}</p>
+          <p class="card-description">{{ exp.shortDescription }}</p>
+        </div>
+      </a>
+    </div>
+  </section>
+</div>

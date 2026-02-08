@@ -1,115 +1,25 @@
-<div>
-  <!-- Profile Section -->
-  <section>
-    <div class="maPhoto">
-      <img src="assets/img/photo.png" alt="ma photo de profil">
-    </div>
-    <div class="info-contacts">
-      <div class="element">
-        <button class="button" (click)="isDisplayTel = !isDisplayTel">
-          <img src="assets/img/portable.png" alt="phone">
-        </button>
-        <div class="mail" *ngIf="isDisplayTel">
-          <span>{{ phone }}</span>
-        </div>
-      </div>
-      <div class="element">
-        <button class="button" (click)="isDisplayMail = !isDisplayMail">
-          <img src="assets/img/mail.png" alt="mail">
-        </button>
-        <div class="mail" *ngIf="isDisplayMail">
-          <span>{{ email }}</span>
-        </div>
-      </div>
-      <div class="element">
-        <a [href]="linkedinUrl" target="_blank">
-          <img src="assets/img/linkidin2.png" alt="profil-linkedin">
-        </a>
-      </div>
-      <div class="element">
-        <a [href]="githubUrl" target="_blank">
-          <img src="assets/img/guithub.png" alt="mon github">
-        </a>
-      </div>
-    </div>
-    <div class="pres">
-      <p>{{ aboutText }}</p>
-    </div>
+<div class="experience-container">
+  <!-- Navigation Section -->
+  <section class="navigation-section">
+    <a routerLink="/" class="nav-button">< Accueil</a>
+    <a routerLink="/projets" class="nav-button">Mes Projets ></a>
   </section>
 
-  <!-- Main Content -->
-  <div class="container">
-    <div class="row justify-content-between custom-line">
-      <!-- Experiences -->
-      <div class="col-4">
-        <div class="carre-exp">
-          <div class="titre">
-            <h3>Expériences</h3>
-          </div>
-          <div *ngFor="let exp of experiences" class="compet">
-            <div>
-              <h6>{{ exp.title }}</h6>
-              <p>{{ exp.duration }}</p>
-            </div>
-            <div class="exp-desc">
-              <ul>
-                <li *ngFor="let desc of exp.description">{{ desc }}</li>
-              </ul>
-            </div>
-          </div>
+  <!-- Experiences Grid -->
+  <section class="experiences-section">
+    <div class="experiences-grid">
+      <a *ngFor="let exp of experiences" 
+         [routerLink]="['/experience', exp.id]"
+         class="experience-card">
+        <div class="card-image-wrapper">
+          <img [src]="exp.logo" [alt]="exp.company" class="card-image">
         </div>
-      </div>
-
-      <!-- Skills -->
-      <div class="col-4">
-        <div class="carre-comp">
-          <div class="titre">
-            <h3>Compétences</h3>
-          </div>
-          <div *ngFor="let skillGroup of skills" class="compet">
-            <h6>{{ skillGroup.category }}</h6>
-            <ul>
-              <li *ngFor="let skill of skillGroup.items">{{ skill }}</li>
-            </ul>
-          </div>
+        <div class="card-content">
+          <h3 class="card-title">{{ exp.title }}</h3>
+          <p class="card-duration">{{ exp.duration }}</p>
+          <p class="card-description">{{ exp.shortDescription }}</p>
         </div>
-      </div>
-
-      <!-- Formation & Certificates -->
-      <div class="col-4">
-        <div class="carre-form">
-          <div class="titre">
-            <h3>Formation</h3>
-          </div>
-          <div *ngFor="let edu of education" class="exp">
-            <div>
-              <a href="#">
-                <img [src]="edu.logo" [alt]="edu.title">
-              </a>
-            </div>
-            <div>
-              <h2>{{ edu.title }}</h2>
-              <h4>{{ edu.duration }}</h4>
-            </div>
-          </div>
-        </div>
-
-        <!-- Certificates -->
-        <div class="col-4">
-          <div class="carre-certif">
-            <button class="cvBtn" (click)="toggleCertificates()">
-              Certificats
-            </button>
-            <div *ngIf="displayCertificates">
-              <div class="exp">
-                <div>
-                  <h2 *ngFor="let cert of certificates">• {{ cert }}</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </a>
     </div>
-  </div>
+  </section>
 </div>
