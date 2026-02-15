@@ -22,7 +22,7 @@ FROM nginx:alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copier les fichiers buildés depuis le stage 1
-COPY --from=builder /app/dist/web-portfolio-ali/browser /usr/share/nginx/html
+COPY --from=builder /app/dist/web-Ali-KHLIFI-angular/browser /usr/share/nginx/html
 
 # Exposer le port
 EXPOSE 80
