@@ -3,16 +3,14 @@
 ## Infrastructure serveur
 
 ```
-/opt/portfolio-ali/
-├── portfolio-ali.git/         (dépôt Git bare)
-├── portfolio-ali/             (code source cloné)
-│   ├── src/
-│   ├── public/
-│   ├── Dockerfile
-│   ├── docker-compose.yml
-│   ├── nginx.conf
-│   ├── package.json
-│   └── ...
+/opt/web-portfolio-ali/       (code source complet)
+├── src/
+├── public/
+├── Dockerfile
+├── docker-compose.yml
+├── nginx.conf
+├── package.json
+├── README_DEPLOY.md
 └── portfolio-deploy/          (déploiement Docker)
     ├── docker-compose.yml
     ├── Dockerfile
@@ -25,21 +23,19 @@
 ### Sur le serveur (root@94.250.202.228)
 
 ```bash
-# Créer la structure
-mkdir -p /opt/portfolio-ali/portfolio-deploy
-cd /opt/portfolio-ali
+# Si pas encore cloné, cloner le repo depuis GitHub
+cd /opt
+git clone git@gitlab.com:akhlifi-group/web-portfolio-ali.git web-portfolio-ali
+cd web-portfolio-ali
 
-# Initialiser le dépôt bare
-git init --bare portfolio-ali.git
+# Créer le dossier portfolio-deploy
+mkdir -p portfolio-deploy
 
-# Cloner le code source
-git clone portfolio-ali.git portfolio-ali
-
-# Copier les fichiers Docker dans portfolio-deploy
-cp portfolio-ali/Dockerfile portfolio-deploy/
-cp portfolio-ali/docker-compose.yml portfolio-deploy/
-cp portfolio-ali/nginx.conf portfolio-deploy/
-cp portfolio-ali/.dockerignore portfolio-deploy/
+# Copier les fichiers Docker
+cp Dockerfile portfolio-deploy/
+cp docker-compose.yml portfolio-deploy/
+cp nginx.conf portfolio-deploy/
+cp .dockerignore portfolio-deploy/
 ```
 
 ## 🚢 Déployer (chaque fois)
@@ -56,12 +52,12 @@ git push origin main
 
 ```bash
 # 1️⃣  Mettre à jour le code source
-cd /opt/portfolio-ali/portfolio-ali
+cd /opt/web-portfolio-ali
 git pull
 
-# 2️⃣  Redémarrer les conteneurs
-cd /opt/portfolio-ali/portfolio-deploy
-docker-compose up -d
+# 2️⃣  Redémarrer les conteneurs (depuis le dossier portfolio-deploy)
+cd portfolio-deploy
+docker-compose up -d --build
 ```
 
 ## ✅ Fichiers nécessaires
