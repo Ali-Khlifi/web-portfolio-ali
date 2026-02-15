@@ -1,0 +1,25 @@
+<div class="experience-container">
+  <!-- Navigation Section -->
+  <section class="navigation-section">
+    <a routerLink="/" class="nav-button">< Accueil</a>
+    <a routerLink="/projets" class="nav-button">Mes Projets ></a>
+  </section>
+
+  <!-- Experiences Grid -->
+  <section class="experiences-section">
+    <div class="experiences-grid">
+      <a *ngFor="let exp of experiences" 
+         [routerLink]="['/experience', exp.id]"
+         class="experience-card">
+        <div class="card-image-wrapper">
+          <img [src]="exp.logo" [alt]="exp.company" class="card-image">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">{{ exp.title }}</h3>
+          <p class="card-duration">{{ exp.duration }}</p>
+          <p class="card-description">{{ exp.shortDescription }}</p>
+        </div>
+      </a>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  width: 100%;
+  padding: 40px 20px;
+}
+
+div {
+  padding: 20px;
+  text-align: center;
+  color: #333;
+}
+
+h1, h2, h3 {
+  color: #7f7f7f;
+  margin-bottom: 15px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 15px;
+  border-radius: 5px;
+}

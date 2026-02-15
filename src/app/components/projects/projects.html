@@ -1,0 +1,31 @@
+<div class="projects-container">
+  <!-- Navigation Section -->
+  <section class="navigation-section">
+    <a routerLink="/experience" class="nav-button">< Mes Expériences</a>
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="projects-section">
+    <div class="projects-grid">
+      <div *ngFor="let project of projects" class="project-card">
+        <div class="card-image-wrapper">
+          <img [src]="project.imageUrl" [alt]="project.title" class="card-image">
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">{{ project.title }}</h3>
+          <p class="card-description">{{ project.shortDescription }}</p>
+          
+          <!-- Action Buttons -->
+          <div class="project-actions">
+            <a *ngIf="project.liveLink" [href]="project.liveLink" target="_blank" class="action-button visit-button">
+              Visiter
+            </a>
+            <a *ngIf="project.githubLink" [href]="project.githubLink" target="_blank" class="action-button gitlab-button">
+              <img src="assets/img/gitlab.png" alt="GitLab" class="gitlab-icon">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
