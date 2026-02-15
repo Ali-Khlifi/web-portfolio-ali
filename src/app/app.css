@@ -37,3 +37,25 @@ footer .column p {
   font-family: "Comic Sans MS", "Trebuchet MS", Georgia, serif;
   font-size: small;
 }
+
+/* Primary Button Style (Unified across all pages) */
+.primary-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #5a5a5a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  background: #4a4a4a;
+}
