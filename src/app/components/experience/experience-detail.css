@@ -71,6 +71,10 @@
   margin-bottom: 0;
 }
 
+.section-text {
+  text-align: justify;
+}
+
 .detail-section strong {
   color: #000;
 }
@@ -112,6 +116,51 @@
   font-weight: 600;
 }
 
+.technologies-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin: 0;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.tech-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.tech-icon-wrapper:hover {
+  transform: scale(1.15);
+}
+
+.tech-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.tech-icon-wrapper:hover .tech-icon {
+  opacity: 1;
+}
+
+.tech-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  max-width: 70px;
+  word-break: break-word;
+}
+
 /* Lists */
 .missions-list,
 .skills-list {
@@ -128,6 +177,7 @@
   padding-left: 30px;
   position: relative;
   margin-bottom: 15px;
+  text-align: justify;
 }
 
 .missions-list li:before {

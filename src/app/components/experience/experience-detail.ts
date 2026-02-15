@@ -15,6 +15,7 @@ interface Experience {
   team: string;
   methodology: string;
   technologies: string[];
+  technologiesIcons?: string[];
   technicalDetails: string;
   mainMissions: string[];
   skillsAcquired: string[];
@@ -31,45 +32,17 @@ interface Experience {
       <h1 class="detail-title">{{ experience?.presentation }}</h1>
 
       <div class="detail-content" *ngIf="experience">
-        <!-- Presentation -->
-        <section class="detail-section">
-          <h2 class="section-title">📄 Présentation</h2>
-          <p>{{ experience.shortDescription }}</p>
-        </section>
-
+        
         <!-- Context -->
         <section class="detail-section">
-          <h2 class="section-title">🎯 Contexte et Objectifs</h2>
-          <p><strong>Contexte:</strong> {{ experience.context }}</p>
-          <p><strong>Objectifs:</strong> {{ experience.objectives }}</p>
+          <h2 class="section-title">📋 Contexte</h2>
+          <p class="section-text">{{ experience.context }}</p>
         </section>
 
-        <!-- Team & Methodology -->
+        <!-- Teams -->
         <section class="detail-section">
-          <div class="two-columns">
-            <div>
-              <h3>👥 Équipe</h3>
-              <p>{{ experience.team }}</p>
-            </div>
-            <div>
-              <h3>📋 Méthodologie</h3>
-              <p>{{ experience.methodology }}</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Technologies -->
-        <section class="detail-section">
-          <h2 class="section-title">💻 Technologies Utilisées</h2>
-          <div class="technologies-list">
-            <span *ngFor="let tech of experience.technologies" class="tech-badge">{{ tech }}</span>
-          </div>
-        </section>
-
-        <!-- Technical Details -->
-        <section class="detail-section">
-          <h2 class="section-title">🔧 Détails Techniques</h2>
-          <p>{{ experience.technicalDetails }}</p>
+          <h2 class="section-title">👥 Équipes</h2>
+          <p class="section-text">{{ experience.team }}</p>
         </section>
 
         <!-- Main Missions -->
@@ -80,12 +53,18 @@ interface Experience {
           </ul>
         </section>
 
-        <!-- Skills -->
+        <!-- Technologies -->
         <section class="detail-section">
-          <h2 class="section-title">📈 Compétences Acquises</h2>
-          <ul class="skills-list">
-            <li *ngFor="let skill of experience.skillsAcquired">{{ skill }}</li>
-          </ul>
+          <h2 class="section-title">💻 Technologies Utilisées</h2>
+          <div class="technologies-icons" *ngIf="experience.technologiesIcons && experience.technologiesIcons.length > 0">
+            <div class="tech-icon-wrapper" *ngFor="let icon of experience.technologiesIcons; let i = index" [title]="experience.technologies[i]">
+              <img [src]="icon" [alt]="experience.technologies[i]" class="tech-icon" onerror="this.src='assets/img/logo.png'">
+            </div>
+          </div>
+          <!-- Fallback if no icons -->
+          <div class="technologies-list" *ngIf="!experience.technologiesIcons || experience.technologiesIcons.length === 0">
+            <span *ngFor="let tech of experience.technologies" class="tech-badge">{{ tech }}</span>
+          </div>
         </section>
       </div>
     </div>
@@ -109,6 +88,12 @@ export class ExperienceDetailComponent implements OnInit {
       team: 'Chef de projet, 2 développeurs fullstack',
       methodology: 'Agile, sprints de 2 semaines',
       technologies: ['Angular', 'Java Spring Boot', 'PostgreSQL', 'Docker', 'REST API', 'Analytics'],
+      technologiesIcons: [
+        'assets/img/angular.png',
+        'assets/img/java.png',
+        'assets/img/postgresqlmbol.jpg',
+        'assets/img/docker.png',        'assets/img/Unofficial_JavaScript_logo_2.svg.png',        'assets/img/Unofficial_JavaScript_logo_2.svg.png'
+      ],
       technicalDetails: 'Application fullstack avec architecture modulaire. Intégration de systèmes de reporting time-real et dashboards analytiques.',
       mainMissions: [
         'Développement des composants Angular pour l\'interface de gestion des campagnes',
@@ -136,6 +121,14 @@ export class ExperienceDetailComponent implements OnInit {
       team: 'Chef de projet, 3 développeurs',
       methodology: 'Agile, sprints de 1 semaine',
       technologies: ['Angular', 'Java Spring Boot', 'PostgreSQL', 'OAuth2', 'JWT', 'Docker', 'Kubernetes'],
+      technologiesIcons: [
+        'assets/img/angular.png',
+        'assets/img/java.png',
+        'assets/img/postgresqlmbol.jpg',
+        'assets/img/Unofficial_JavaScript_logo_2.svg.png',
+        'assets/img/docker.png',
+        'assets/img/docker-kubernetes.png'
+      ],
       technicalDetails: 'Application sécurisée avec authentification OAuth2 et gestion des tokens JWT. Architecture microservices conteneurisée.',
       mainMissions: [
         'Développement de l\'interface de gestion des utilisateurs et rôles',
@@ -163,6 +156,13 @@ export class ExperienceDetailComponent implements OnInit {
       team: 'Chef de projet, 2 développeurs',
       methodology: 'Agile, sprints de 2 semaines',
       technologies: ['Angular', 'Java Spring Boot', 'PostgreSQL', 'Docker', 'REST API'],
+      technologiesIcons: [
+        'assets/img/angular.png',
+        'assets/img/java.png',
+        'assets/img/postgresqlmbol.jpg',
+        'assets/img/docker.png',
+        'assets/img/Unofficial_JavaScript_logo_2.svg.png'
+      ],
       technicalDetails: 'Application full stack avec architecture monolithique. Intégration de formulaires dynamiques, gestion d\'authentification, et tableaux de bord analytiques.',
       mainMissions: [
         'Développement des composants Angular pour l\'interface de recrutement',
@@ -190,6 +190,14 @@ export class ExperienceDetailComponent implements OnInit {
       team: 'Chef de projet, 2 développeurs fullstack',
       methodology: 'Agile, sprints de 2 semaines',
       technologies: ['Angular', 'Java Spring Boot', 'PostgreSQL', 'Docker', 'REST API', 'Monitoring'],
+      technologiesIcons: [
+        'assets/img/angular.png',
+        'assets/img/java.png',
+        'assets/img/postgresqlmbol.jpg',
+        'assets/img/docker.png',
+        'assets/img/Unofficial_JavaScript_logo_2.svg.png',
+        'assets/img/Unofficial_JavaScript_logo_2.svg.png'
+      ],
       technicalDetails: 'Application fullstack avec architecture modulaire. Intégration de systèmes de monitoring temps-réel et dashboards d\'analytique avancée.',
       mainMissions: [
         'Développement des interfaces de gestion d\'infrastructure',

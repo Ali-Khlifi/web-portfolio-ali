@@ -15,6 +15,7 @@ interface Experience {
   team: string;
   methodology: string;
   technologies: string[];
+  technologiesIcons?: string[];
   technicalDetails: string;
   mainMissions: string[];
   skillsAcquired: string[];
@@ -42,6 +43,14 @@ export class ExperienceComponent {
       team: 'Chef de projet, 2 développeurs fullstack',
       methodology: 'Agile, sprints de 2 semaines',
       technologies: ['Angular', 'Java Spring Boot', 'PostgreSQL', 'Docker', 'REST API', 'Analytics'],
+      technologiesIcons: [
+        'assets/img/angular.png',
+        'assets/img/java.png',
+        'assets/img/postgresqlmbol.jpg',
+        'assets/img/docker.png',
+        'assets/img/Unofficial_JavaScript_logo_2.svg.png',
+        'assets/img/Unofficial_JavaScript_logo_2.svg.png'
+      ],
       technicalDetails: 'Application fullstack avec architecture modulaire. Intégration de systèmes de reporting time-real et dashboards analytiques.',
       mainMissions: [
         'Développement des composants Angular pour l\'interface de gestion des campagnes',
@@ -69,6 +78,15 @@ export class ExperienceComponent {
       team: 'Chef de projet, 3 développeurs',
       methodology: 'Agile, sprints de 1 semaine',
       technologies: ['Angular', 'Java Spring Boot', 'PostgreSQL', 'OAuth2', 'JWT', 'Docker', 'Kubernetes'],
+      technologiesIcons: [
+        'assets/img/angular.png',
+        'assets/img/java.png',
+        'assets/img/postgresqlmbol.jpg',
+        'assets/img/Unofficial_JavaScript_logo_2.svg.png',
+        'assets/img/Unofficial_JavaScript_logo_2.svg.png',
+        'assets/img/docker.png',
+        'assets/img/docker-kubernetes.png'
+      ],
       technicalDetails: 'Application sécurisée avec authentification OAuth2 et gestion des tokens JWT. Architecture microservices conteneurisée.',
       mainMissions: [
         'Développement de l\'interface de gestion des utilisateurs et rôles',
@@ -96,6 +114,13 @@ export class ExperienceComponent {
       team: 'Chef de projet, 2 développeurs',
       methodology: 'Agile, sprints de 2 semaines',
       technologies: ['Angular', 'Java Spring Boot', 'PostgreSQL', 'Docker', 'REST API'],
+      technologiesIcons: [
+        'assets/img/angular.png',
+        'assets/img/java.png',
+        'assets/img/postgresqlmbol.jpg',
+        'assets/img/docker.png',
+        'assets/img/Unofficial_JavaScript_logo_2.svg.png'
+      ],
       technicalDetails: 'Application full stack avec architecture monolithique. Intégration de formulaires dynamiques, gestion d\'authentification, et tableaux de bord analytiques.',
       mainMissions: [
         'Développement des composants Angular pour l\'interface de recrutement',
