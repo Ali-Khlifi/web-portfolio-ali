@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:18-alpine as builder
+FROM node:22-alpine as builder
 
 WORKDIR /app
 
@@ -7,7 +7,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Installer les dépendances
-RUN npm ci
+RUN npm install --legacy-peer-deps
 
 # Copier le code source
 COPY . .
@@ -22,7 +22,7 @@ FROM nginx:alpine
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copier les fichiers buildés depuis le stage 1
-COPY --from=builder /app/dist/web-portfolio-ali/browser /usr/share/nginx/html
+COPY --from=builder /app/dist/web-Ali-KHLIFI-angular/browser /usr/share/nginx/html
 
 # Exposer le port
 EXPOSE 80
