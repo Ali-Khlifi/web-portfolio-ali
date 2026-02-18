@@ -12,4 +12,4 @@ services:
 
 networks:
   shared-network:
-    driver: bridge  # Se connecte au réseau partagé avec cinema-deploy
+    external: true
