@@ -6,12 +6,10 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: web-portfolio-ali
-    ports:
-      - "3000:80"
     restart: always
     networks:
-      - portfolio-network
+      - shared-network
 
 networks:
-  portfolio-network:
-    driver: bridge
+  shared-network:
+    driver: bridge  # Se connecte au réseau partagé avec cinema-deploy
