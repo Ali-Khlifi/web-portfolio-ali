@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  background-color: #d5d5d5;
+  transition: background-color 0.6s ease-in-out;
+}
+
+.contacts-container {
+  min-height: 100vh;
+  padding: 60px 40px;
+  padding-top: 130px;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .contacts-container {
+    padding: 20px;
+    padding-top: 100px;
+  }
+}

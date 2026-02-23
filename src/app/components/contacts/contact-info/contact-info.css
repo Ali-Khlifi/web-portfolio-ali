@@ -1,0 +1,123 @@
+.contact-info-section {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  text-align: center;
+}
+
+.info-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  flex-wrap: wrap;
+}
+
+.info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  min-width: 150px;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.info-card:hover {
+  transform: translateY(-8px);
+}
+
+.info-card-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.info-card-icon svg {
+  width: 60px;
+  height: 60px;
+}
+
+.cv-icon {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+}
+
+.email-icon {
+  background: #000;
+  color: white;
+}
+
+.linkedin-icon {
+  background: linear-gradient(135deg, #0077b5 0%, #00609d 100%);
+  color: white;
+}
+
+.info-card:hover .info-card-icon {
+  transform: scale(1.1);
+}
+
+.info-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin: 0;
+}
+
+.info-card:hover .info-card-title {
+  color: #5fd45f;
+}
+
+.info-card-text {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+  word-break: break-word;
+  max-width: 200px;
+  transition: color 0.3s ease;
+}
+
+.info-card:hover .info-card-text {
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .contact-info-section {
+    margin: 0 auto 30px;
+  }
+
+  .info-cards {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .info-card {
+    padding: 25px;
+  }
+
+  .info-card-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .info-card-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .info-card-title {
+    font-size: 1rem;
+  }
+
+  .info-card-text {
+    font-size: 0.85rem;
+  }
+}

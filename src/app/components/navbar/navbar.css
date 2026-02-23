@@ -54,6 +54,13 @@
   color: #ddd;
 }
 
+.navbar-menu a.active {
+  background: rgba(255, 255, 255, 0.2);
+  border-bottom: 3px solid #fff;
+  color: #fff;
+  font-weight: 600;
+}
+
 /* Mobile Toggle Button */
 .navbar-toggle {
   display: none;
