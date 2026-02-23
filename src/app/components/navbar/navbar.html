@@ -10,7 +10,10 @@
     <!-- Navigation Links -->
     <ul class="navbar-menu" [class.active]="menuOpen">
       <li *ngFor="let item of navItems">
-        <a [routerLink]="item.link" (click)="menuOpen = false">
+        <a [routerLink]="item.link" 
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{ exact: true }"
+           (click)="menuOpen = false">
           {{ item.name }}
         </a>
       </li>
