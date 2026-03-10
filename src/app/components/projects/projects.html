@@ -8,7 +8,7 @@
         </div>
         <div class="card-content">
           <h3 class="card-title">{{ project.title }}</h3>
-          <p class="card-description">{{ project.shortDescription }}</p>
+          <p class="card-description" [innerHTML]="project.shortDescription"></p>
           
           <!-- Action Buttons -->
           <div class="project-actions">
