@@ -27,7 +27,7 @@ interface Experience {
   imports: [CommonModule, RouterLink],
   template: `
     <div class="experience-detail-container">
-      <a routerLink="/experience" class="cta-button">< Retour aux Expériences</a>
+      <a routerLink="/experience" class="cta-button">< Retour aux expériences</a>
 
       <div class="detail-header" *ngIf="experience">
         <h1 class="detail-title">{{ experience.presentation }}</h1>
@@ -82,7 +82,7 @@ export class ExperienceDetailComponent implements OnInit {
       id: 'coexya-mobilite-aix',
       title: 'Projet Mobilité Métropole Aix en Marseille-Provence',
       company: 'COEXYA',
-      duration: 'Mars 2025 – Aujourd\'hui',
+      duration: 'En cours (depuis mars 2025)',
       shortDescription: 'Participation à la conception et à la mise en oeuvre de la plateforme de services (PFS), dédiée aux solutions de Mobility as a Service (MaaS).',
       logo: 'assets/img/LogoCoexya.png',
       presentation: 'Projet MAMP',

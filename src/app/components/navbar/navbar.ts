@@ -17,9 +17,9 @@ interface NavItem {
 export class NavbarComponent {
   @Input() navItems: NavItem[] = [
     { name: 'Accueil', link: '/home' },
-    { name: 'Mon expérience pro', link: '/experience' },
-    { name: 'Mes projets', link: '/projets' },
-    { name: 'Contacts', link: '/contacts' },
+    { name: 'Expérience professionnelle', link: '/experience' },
+    { name: 'Projets', link: '/projets' },
+    { name: 'Contact', link: '/contacts' },
   ];
 
   menuOpen = false;
