@@ -7,16 +7,18 @@ import { Router } from '@angular/router';
 export class ScrollNavigationService {
   private pages = [
     { path: '/home', name: 'Accueil' },
-    { path: '/experience', name: 'Expérience' },
+    { path: '/experience', name: 'Expérience professionnelle' },
     { path: '/projets', name: 'Projets' },
-    { path: '/contacts', name: 'Contacts' }
+    { path: '/contacts', name: 'Contact' }
   ];
 
   private currentPageIndex = 0;
   private scrollThreshold = 0.7; // 70% du scroll pour trigger navigation
   private isNavigating = false;
-  private navigationCooldown = 800; // ms entre chaque navigation
+  private navigationCooldown = 1200; // ms entre chaque navigation (augment pour plus de fluidité)
   private scrollEnabled = true; // Contrôle si le scroll auto-nav est actif
+  private accumulatedScroll = 0; // Track scroll amount before navigating
+  private scrollSensitivity = 3; // Nombre de wheel events avant navigation
 
   constructor(private router: Router) {
     this.updateCurrentPageIndex();
@@ -24,25 +26,35 @@ export class ScrollNavigationService {
   }
 
   /**
-   * Initialise le listener de scroll
+   * Initialise le listener de scroll pour une navigation fluide et continue
+   * Permet de scroller à travers toutes les pages sans interruption
    */
   initScrollListener() {
     window.addEventListener('wheel', (event) => this.handleScroll(event), { passive: true });
   }
 
   /**
-   * Gère le scroll et navigue automatiquement
+   * Gère le scroll fluide et continu à travers toutes les pages
+   * Navigation intelligente basée sur la direction du scroll
    */
   private handleScroll(event: WheelEvent) {
-    // Ne pas naviguer si on est sur une page de détails
+    // Ne pas naviguer si déjà en train de naviguer
     if (this.isNavigating || !this.scrollEnabled) return;
 
     const isScrollingDown = event.deltaY > 0;
     
-    if (isScrollingDown) {
-      this.goToNextPage();
-    } else {
-      this.goToPreviousPage();
+    // Accumule le scroll pour déterminer quand naviguer
+    this.accumulatedScroll += Math.abs(event.deltaY);
+    
+    // Navigation fluide: nécessite un scroll plus important avant de changer de page
+    if (this.accumulatedScroll > 300) {
+      this.accumulatedScroll = 0;
+      
+      if (isScrollingDown && this.currentPageIndex < this.pages.length - 1) {
+        this.goToNextPage();
+      } else if (!isScrollingDown && this.currentPageIndex > 0) {
+        this.goToPreviousPage();
+      }
     }
   }
 
