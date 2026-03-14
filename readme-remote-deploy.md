@@ -24,19 +24,16 @@ cd web-portfolio-ali
 
 ### Local: Update version and tag
 
-1. **Merge main into develop** (if needed)
+1. **Merge develop into main** (when ready for release)
 ```bash
 git checkout main
 git pull origin main
-git checkout develop
-git merge main --no-ff -m "Merge main into develop v1.x.x"
-git push origin develop
+git merge develop --no-ff -m "Merge develop into main for v1.0.1"
+git push origin main
 ```
 
-2. **Create version tag on main** (after updates are ready)
+2. **Create version tag on main**
 ```bash
-git checkout main
-git pull origin main
 git tag -a v1.0.1 -m "Release v1.0.1"
 git push origin v1.0.1
 ```
