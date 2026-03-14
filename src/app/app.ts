@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar';
 import { PageIndicatorsComponent } from './components/page-indicators/page-indicators';
+import { FooterComponent } from './components/footer-copyright/footer-copyright';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ScrollNavigationService } from './services/scroll-navigation.service';
@@ -10,7 +11,7 @@ import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavbarComponent, PageIndicatorsComponent, CommonModule, FormsModule],
+  imports: [RouterOutlet, NavbarComponent, PageIndicatorsComponent, FooterComponent, CommonModule, FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
