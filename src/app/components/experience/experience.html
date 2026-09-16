@@ -1,10 +1,112 @@
 <div class="experience-container">
-  <!-- Experiences Grid -->
+  <header class="section-header">
+    <h2 class="section-title">Parcours</h2>
+  </header>
+
+  <section class="journey" aria-label="Timeline du parcours">
+    <div class="curve-timeline">
+      <div class="curve-stage">
+        <svg
+          class="curve-svg"
+          [attr.viewBox]="'0 0 1000 ' + curveViewHeight"
+          role="img"
+          aria-label="Courbe du parcours Tunisie vers Lyon avec certifications"
+        >
+          <defs>
+            <linearGradient id="curveStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#e39b1a" stop-opacity="0.35"/>
+              <stop offset="55%" stop-color="#e39b1a" stop-opacity="0.75"/>
+              <stop offset="100%" stop-color="#09aaab" stop-opacity="0.95"/>
+            </linearGradient>
+          </defs>
+
+          <path class="curve-line" [attr.d]="curvePath" fill="none" stroke="url(#curveStroke)"/>
+
+          <g *ngFor="let cert of journeyCerts" class="cert-branch">
+            <path
+              class="cert-branch-line"
+              [attr.d]="cert.path"
+              fill="none"
+            />
+            <circle
+              class="cert-branch-node"
+              [attr.cx]="cert.endX"
+              [attr.cy]="cert.endY"
+              r="7"
+            />
+          </g>
+
+          <g *ngFor="let stop of journeyStops; let i = index">
+            <circle
+              class="curve-node"
+              [class.curve-node--current]="stop.current"
+              [attr.cx]="stop.x"
+              [attr.cy]="stop.y"
+              [attr.r]="stop.current ? 12 : 10"
+            />
+          </g>
+        </svg>
+
+        <div
+          class="curve-label"
+          *ngFor="let stop of journeyStops; let i = index"
+          [class.curve-label--current]="stop.current"
+          [style.left.%]="stop.x / 10"
+          [style.top.%]="(stop.y / curveViewHeight) * 100"
+        >
+          <div class="curve-label-bubble">
+            <span class="curve-label-dot curve-label-dot--a" aria-hidden="true"></span>
+            <span class="curve-label-dot curve-label-dot--b" aria-hidden="true"></span>
+            <span class="curve-label-dot curve-label-dot--c" aria-hidden="true"></span>
+            <span class="timeline-year">{{ stop.year }}</span>
+            <span class="timeline-place">{{ stop.place }}</span>
+            <strong class="timeline-master">{{ stop.master }}</strong>
+          </div>
+        </div>
+
+        <div
+          class="cert-label"
+          *ngFor="let cert of journeyCerts"
+          [style.left.%]="cert.endX / 10"
+          [style.top.%]="(cert.endY / curveViewHeight) * 100"
+        >
+          <div class="cert-label-bubble">
+            <span class="timeline-year">{{ cert.year }}</span>
+            <strong class="timeline-master">{{ cert.label }}</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ol class="timeline timeline--mobile">
+      <li
+        class="timeline-step"
+        *ngFor="let stop of journeyStopsMobile; let last = last"
+        [class.timeline-step--current]="stop.current"
+        [class.timeline-step--cert]="stop.cert"
+      >
+        <span class="timeline-year">{{ stop.year }}</span>
+        <span class="timeline-node" aria-hidden="true"></span>
+        <div class="timeline-content">
+          <span class="timeline-place">{{ stop.place }}</span>
+          <strong class="timeline-master">{{ stop.master }}</strong>
+        </div>
+        <span class="timeline-connector" *ngIf="!last" aria-hidden="true"></span>
+      </li>
+    </ol>
+  </section>
+
   <section class="experiences-section">
+    <header class="section-header">
+      <h2 class="section-title">Expériences professionnelles</h2>
+      <p class="section-intro">{{ experiencesLead }}</p>
+    </header>
     <div class="experiences-grid">
-      <a *ngFor="let exp of experiences" 
-         [routerLink]="['/experience', exp.id]"
-         class="experience-card">
+      <a
+        *ngFor="let exp of experiences"
+        [routerLink]="['/experience', exp.id]"
+        class="experience-card kes-card"
+      >
         <div class="card-image-wrapper">
           <img [src]="exp.logo" [alt]="exp.company" class="card-image">
         </div>

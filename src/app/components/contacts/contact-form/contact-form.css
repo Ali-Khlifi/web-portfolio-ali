@@ -1,18 +1,86 @@
 .contact-form-section {
-  background: white;
-  padding: 3rem 2rem;
-  border-radius: 16px;
-  max-width: 700px;
-  margin: 0 auto;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  background: var(--card);
+  padding: var(--card-padding);
+  border-radius: var(--card-radius);
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  border: var(--card-border);
+  box-sizing: border-box;
+}
+
+.contact-form-section--from-sim {
+  border-color: rgba(9, 170, 171, 0.55);
+  box-shadow: 0 0 0 1px rgba(9, 170, 171, 0.12);
 }
 
 .section-title {
   text-align: center;
   font-size: 1.8rem;
-  margin-bottom: 2.5rem;
-  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  color: var(--text);
   font-weight: 600;
+}
+
+.contact-form-section .kes-step-tag {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 12px;
+}
+
+.section-title--step {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.prestation-bridge {
+  margin: 0 0 1.75rem;
+  padding: 1rem 1.15rem;
+  border-radius: 12px;
+  background: rgba(9, 170, 171, 0.12);
+  border: 1px solid rgba(9, 170, 171, 0.4);
+}
+
+.prestation-bridge-kicker {
+  margin: 0 0 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-k);
+}
+
+.prestation-bridge-choice {
+  margin: 0 0 8px;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.prestation-bridge-help {
+  margin: 0 0 12px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.prestation-bridge-clear {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--brand-e);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prestation-bridge-clear:hover {
+  color: var(--accent-strong);
 }
 
 .success-message {
@@ -92,6 +160,12 @@ form {
   gap: 1.5rem;
 }
 
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
@@ -100,33 +174,39 @@ form {
 
 .form-label {
   font-weight: 600;
-  color: #2c3e50;
+  color: var(--text);
   font-size: 0.95rem;
 }
 
 .form-input,
 .form-textarea {
   padding: 0.75rem 1rem;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
   font-family: inherit;
   font-size: 0.95rem;
-  color: #2c3e50;
-  transition: all 0.3s ease;
-  background: #f9f9f9;
+  color: var(--text);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  background: transparent;
+}
+
+.form-textarea {
+  border-radius: 16px;
+  resize: vertical;
+  min-height: 150px;
 }
 
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: #3498db;
-  background: white;
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  border-color: var(--accent);
+  background: transparent;
+  box-shadow: none;
 }
 
 .form-input:disabled,
 .form-textarea:disabled {
-  background: #e8e8e8;
+  background: rgba(10, 10, 10, 0.25);
   color: #999;
   cursor: not-allowed;
 }
@@ -134,13 +214,7 @@ form {
 .form-input.error,
 .form-textarea.error {
   border-color: #e74c3c;
-  background: #fadad9;
-}
-
-.form-textarea {
-  resize: vertical;
-  min-height: 150px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: transparent;
 }
 
 .error-text {
@@ -154,8 +228,8 @@ form {
 }
 
 .submit-button {
-  background: #5a5a5a;
-  color: white;
+  background: var(--accent);
+  color: var(--bg-black);
   padding: 1rem 2rem;
   border: none;
   border-radius: 8px;
@@ -164,13 +238,11 @@ form {
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 1rem;
-  box-shadow: 0 4px 16px rgba(90, 90, 90, 0.4);
 }
 
 .submit-button:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(90, 90, 90, 0.6);
-  background: #4a4a4a;
+  background: var(--accent-strong);
 }
 
 .submit-button:active:not(:disabled) {
@@ -192,6 +264,10 @@ form {
   .section-title {
     font-size: 1.5rem;
     margin-bottom: 2rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
   }
 
   .form-input,

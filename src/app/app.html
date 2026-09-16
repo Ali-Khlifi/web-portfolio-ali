@@ -1,11 +1,7 @@
 <div class="app-container">
-  <app-navbar
-    (searchInputEmit)="onSearchInput($event)"
-  />
-  <div class="content-wrapper">
+  <app-navbar />
+  <main class="content-wrapper">
     <router-outlet />
-  </div>
-  <app-page-indicators />
+  </main>
   <app-footer />
 </div>
-

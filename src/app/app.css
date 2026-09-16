@@ -6,7 +6,6 @@
 }
 
 html, body {
-  height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -14,20 +13,17 @@ html, body {
 
 .app-container {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  color: #2c3e50;
-  background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+  color: var(--text);
+  background: var(--bg-black);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  padding-top: 70px;
+  padding-top: 84px;
 }
 
 .content-wrapper {
   position: relative;
   flex: 1;
-  overflow-y: auto;
-  min-height: calc(100vh - 70px);
-  background: transparent;
   width: 100%;
 }
 
@@ -42,8 +38,8 @@ footer .column p {
 .primary-button {
   display: inline-block;
   padding: 12px 24px;
-  background: #5a5a5a;
-  color: white;
+  background: var(--accent);
+  color: var(--bg-black);
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -51,11 +47,9 @@ footer .column p {
   text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .primary-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  background: #4a4a4a;
+  background: var(--accent-strong);
 }

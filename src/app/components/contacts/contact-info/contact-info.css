@@ -1,123 +1,132 @@
+:host {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .contact-info-section {
-  max-width: 1200px;
-  margin: 0 auto 80px;
+  margin: 0;
   text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .info-cards {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  gap: 80px;
-  flex-wrap: wrap;
+  gap: 28px;
 }
 
 .info-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
-  min-width: 150px;
+  gap: 12px;
+  width: 100%;
   transition: transform 0.3s ease;
   text-decoration: none;
   color: inherit;
 }
 
 .info-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-4px);
 }
 
 .info-card-icon {
-  width: 120px;
-  height: 120px;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 60px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  background: rgba(10, 10, 10, 0.4);
+  border: 2px solid rgba(9, 170, 171, 0.55);
+  color: var(--brand-s);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
 }
 
 .info-card-icon svg {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
 }
 
-.cv-icon {
-  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-  color: white;
-}
-
-.email-icon {
-  background: #000;
-  color: white;
-}
-
+.cv-icon,
+.email-icon,
 .linkedin-icon {
-  background: linear-gradient(135deg, #0077b5 0%, #00609d 100%);
-  color: white;
+  background: rgba(10, 10, 10, 0.4);
+  border-color: rgba(9, 170, 171, 0.55);
+  color: var(--brand-s);
 }
 
 .info-card:hover .info-card-icon {
-  transform: scale(1.1);
+  transform: scale(1.06);
+  background: var(--brand-k);
+  border-color: var(--brand-k);
+  color: var(--bg-black);
+  box-shadow: 0 10px 28px rgba(9, 170, 171, 0.35);
 }
 
 .info-card-title {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
-  color: #333;
+  color: var(--text);
   text-decoration: none;
   transition: color 0.3s ease;
   margin: 0;
 }
 
 .info-card:hover .info-card-title {
-  color: #5fd45f;
+  color: var(--brand-e);
 }
 
 .info-card-text {
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 0.82rem;
+  color: var(--text-muted);
   margin: 0;
   word-break: break-word;
-  max-width: 200px;
+  max-width: 180px;
   transition: color 0.3s ease;
+  line-height: 1.35;
 }
 
 .info-card:hover .info-card-text {
-  color: #ccc;
+  color: var(--text);
 }
 
-@media (max-width: 768px) {
-  .contact-info-section {
-    margin: 0 auto 30px;
-  }
-
+@media (max-width: 900px) {
   .info-cards {
-    flex-direction: column;
-    gap: 30px;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px 40px;
   }
 
   .info-card {
-    padding: 25px;
+    width: auto;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .info-cards {
+    flex-direction: column;
+    gap: 24px;
   }
 
   .info-card-icon {
-    width: 80px;
-    height: 80px;
+    width: 72px;
+    height: 72px;
   }
 
   .info-card-icon svg {
-    width: 40px;
-    height: 40px;
-  }
-
-  .info-card-title {
-    font-size: 1rem;
-  }
-
-  .info-card-text {
-    font-size: 0.85rem;
+    width: 34px;
+    height: 34px;
   }
 }

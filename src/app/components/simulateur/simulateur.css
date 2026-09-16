@@ -1,0 +1,121 @@
+:host {
+  display: block;
+  background: transparent;
+}
+
+.simulateur-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  color: var(--text);
+}
+
+.section-header {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--text);
+}
+
+.section-intro {
+  margin: 0;
+  max-width: 640px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.simulateur-card {
+  max-width: min(100%, 872px);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--card-padding);
+  border-radius: var(--card-radius);
+  background: var(--card);
+  border: var(--card-border);
+  box-sizing: border-box;
+}
+
+.choice-group {
+  border: 0;
+  margin: 0 0 28px;
+  padding: 0;
+}
+
+.choice-group legend {
+  padding: 0;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.choice-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.choice-chip {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.choice-chip:hover,
+.choice-chip.active {
+  border-color: var(--accent);
+  color: var(--bg-black);
+  background: var(--accent);
+}
+
+.simulateur-summary {
+  margin: 0 0 20px;
+  color: var(--text-muted);
+}
+
+.simulateur-summary strong {
+  color: var(--text);
+}
+
+.simulateur-cta {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--bg-black);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.simulateur-cta:hover {
+  background: var(--accent-strong);
+}
+
+.simulateur-hint {
+  margin: 14px 0 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .simulateur-container {
+    padding: 56px 20px;
+  }
+
+  .simulateur-card {
+    padding: 24px 18px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+}

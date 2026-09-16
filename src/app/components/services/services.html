@@ -1,0 +1,19 @@
+<div class="services-container">
+  <header class="section-header">
+    <h2 class="section-title">Services</h2>
+    <p class="section-intro">
+      Prestations freelance pour concevoir, livrer et mettre en production une application web.
+    </p>
+  </header>
+
+  <div class="services-grid">
+    <a
+      *ngFor="let service of services"
+      class="service-card kes-card service-card--link"
+      [routerLink]="['/references', service.referenceId]"
+    >
+      <h3 class="service-title">{{ service.title }}</h3>
+      <p class="service-description">{{ service.description }}</p>
+    </a>
+  </div>
+</div>

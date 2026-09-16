@@ -1,19 +1,72 @@
 :host {
   display: block;
-  background-color: #d5d5d5;
-  transition: background-color 0.6s ease-in-out;
+  background: transparent;
 }
 
 .contacts-container {
-  min-height: 100vh;
-  padding: 60px 40px;
-  padding-top: 130px;
-  color: #333;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 40px 80px;
+  color: var(--text);
+}
+
+.section-header {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: var(--text);
+}
+
+.section-intro {
+  margin: 0;
+  max-width: 640px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* Même centrage que la carte prestation (872px) */
+.contacts-stage {
+  position: relative;
+  width: min(100%, 872px);
+  margin: 0 auto;
+}
+
+.contacts-form-col {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Liens à droite de la carte, sans décaler le centre */
+.contacts-info-col {
+  position: absolute;
+  left: calc(100% + 28px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1100px) {
+  .contacts-info-col {
+    position: static;
+    transform: none;
+    width: 100%;
+    margin-top: 32px;
+  }
 }
 
 @media (max-width: 768px) {
   .contacts-container {
-    padding: 20px;
-    padding-top: 100px;
+    padding: 40px 20px 56px;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
   }
 }

@@ -1,17 +1,16 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home';
-import { ExperienceComponent } from './components/experience/experience';
+import { LandingComponent } from './components/landing/landing';
 import { ExperienceDetailComponent } from './components/experience/experience-detail';
-import { ProjectsComponent } from './components/projects/projects';
-import { ContactsComponent } from './components/contacts/contacts';
+import { ReferencesComponent } from './components/references/references';
 
 export const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'experience', component: ExperienceComponent },
+  { path: '', component: LandingComponent },
+  { path: 'home', redirectTo: '', pathMatch: 'full' },
+  { path: 'experience', redirectTo: '', pathMatch: 'full' },
   { path: 'experience/:id', component: ExperienceDetailComponent },
-  { path: 'cv', redirectTo: '/experience', pathMatch: 'full' },
-  { path: 'projets', component: ProjectsComponent },
-  { path: 'contacts', component: ContactsComponent },
-  { path: '**', redirectTo: '/home' }
+  { path: 'references/:id', component: ReferencesComponent },
+  { path: 'cv', redirectTo: '', pathMatch: 'full' },
+  { path: 'projets', redirectTo: '', pathMatch: 'full' },
+  { path: 'contacts', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '' },
 ];

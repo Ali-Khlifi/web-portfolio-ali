@@ -1,0 +1,41 @@
+:host {
+  display: block;
+}
+
+.landing {
+  width: 100%;
+}
+
+.landing-section {
+  scroll-margin-top: 84px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.theme-black {
+  background-color: var(--bg-black);
+  background-image:
+    linear-gradient(rgba(10, 10, 10, 0.88), rgba(10, 10, 10, 0.92)),
+    url('/assets/img/background-site.jpg');
+}
+
+.theme-teal {
+  background-color: var(--bg-teal);
+  background-image:
+    linear-gradient(rgba(24, 136, 160, 0.82), rgba(16, 110, 130, 0.88)),
+    url('/assets/img/background-site.jpg');
+}
+
+.theme-orange {
+  background-color: var(--bg-orange);
+  background-image:
+    linear-gradient(rgba(180, 110, 15, 0.78), rgba(120, 70, 8, 0.86)),
+    url('/assets/img/background-site.jpg');
+}
+
+@media (max-width: 768px) {
+  .landing-section {
+    background-attachment: scroll;
+  }
+}

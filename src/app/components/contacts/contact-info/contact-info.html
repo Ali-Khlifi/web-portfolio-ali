@@ -1,6 +1,5 @@
 <div class="contact-info-section">
   <div class="info-cards">
-    <!-- Mon CV -->
     <a [href]="cvFile" download class="info-card">
       <div class="info-card-icon cv-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -11,10 +10,8 @@
         </svg>
       </div>
       <p class="info-card-title">Mon CV</p>
-      <p class="info-card-text">Télécharger</p>
     </a>
 
-    <!-- Email -->
     <a [href]="'mailto:' + email" class="info-card">
       <div class="info-card-icon email-icon">
         <svg viewBox="0 0 24 24" fill="currentColor">
@@ -23,11 +20,9 @@
         </svg>
       </div>
       <p class="info-card-title">Email</p>
-      <p class="info-card-text">{{ email }}</p>
     </a>
 
-    <!-- LinkedIn -->
-    <a [href]="linkedinUrl" target="_blank" class="info-card">
+    <a [href]="linkedinUrl" target="_blank" rel="noopener noreferrer" class="info-card">
       <div class="info-card-icon linkedin-icon">
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6M2 9h4v12H2z"/>
@@ -35,7 +30,6 @@
         </svg>
       </div>
       <p class="info-card-title">LinkedIn</p>
-      <p class="info-card-text">{{ linkedinName }}</p>
     </a>
   </div>
 </div>

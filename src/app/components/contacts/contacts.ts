@@ -15,5 +15,5 @@ export class ContactsComponent {
   email = 'alikhlifi.kh@gmail.com';
   linkedinUrl = 'https://www.linkedin.com/in/ali-k-77b60a148/';
   linkedinName = 'Ali KHLIFI';
-  cvFile = 'assets/files/CV Ali KHLIFI 01-2026 .pdf';
+  cvFile = 'assets/files/CV Ali KHLIFI 08-2026.pdf';
 }
