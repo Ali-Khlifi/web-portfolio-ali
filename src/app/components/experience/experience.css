@@ -34,7 +34,9 @@
   padding: 0;
 }
 
+/* Mobile-first : courbe masquée par défaut pour éviter le flash iPhone */
 .curve-timeline {
+  display: none;
   position: relative;
   width: min(100%, 1040px);
   margin: 0 auto;
@@ -265,9 +267,13 @@
   }
 }
 
-/* Mobile list hidden on desktop */
+/* Liste mobile visible par défaut (desktop la masque plus bas) */
 .timeline--mobile {
-  display: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  max-width: 420px;
+  margin: 0 auto;
 }
 
 .timeline {
@@ -279,16 +285,8 @@
 
 .timeline-step {
   position: relative;
-  opacity: 0;
-  animation: mobile-step-in 0.45s ease forwards;
+  opacity: 1;
 }
-
-.timeline-step:nth-child(1) { animation-delay: 0.05s; }
-.timeline-step:nth-child(2) { animation-delay: 0.15s; }
-.timeline-step:nth-child(3) { animation-delay: 0.25s; }
-.timeline-step:nth-child(4) { animation-delay: 0.35s; }
-.timeline-step:nth-child(5) { animation-delay: 0.45s; }
-.timeline-step:nth-child(6) { animation-delay: 0.55s; }
 
 .timeline-step--cert .timeline-node {
   background: var(--brand-e);
@@ -476,18 +474,6 @@
 }
 
 @media (max-width: 900px) {
-  .curve-timeline {
-    display: none;
-  }
-
-  .timeline--mobile {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
-    max-width: 420px;
-    margin: 0 auto;
-  }
-
   .timeline-step {
     display: grid;
     grid-template-columns: 72px 22px 1fr;
@@ -538,6 +524,16 @@
   .experiences-grid .experience-card:nth-child(4),
   .experiences-grid .experience-card:nth-child(5) {
     grid-column: auto;
+  }
+}
+
+@media (min-width: 901px) {
+  .curve-timeline {
+    display: block;
+  }
+
+  .timeline--mobile {
+    display: none;
   }
 }
 

@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class HomeComponent {
   description =
-    'Je suis Ali KHLIFI, développeur freelance fullstack. Sous la marque KHLIFI ENGINEERING SERVICES (KES), j’accompagne vos projets web depuis la conception jusqu’à la mise en production.';
+    'Je suis Ali KHLIFI, ingénieur logiciel. Sous la marque KHLIFI ENGINEERING SERVICES (KES), j’accompagne vos projets web depuis la conception jusqu’à la mise en production.';
 
   email = 'alikhlifi.kh@gmail.com';
   linkedinUrl = 'https://www.linkedin.com/in/ali-k-77b60a148/';

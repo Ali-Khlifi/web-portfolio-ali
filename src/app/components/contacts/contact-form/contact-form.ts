@@ -111,9 +111,9 @@ export class ContactFormComponent implements OnInit, OnDestroy {
           this.draftService.clearSummary();
           this.submitted = false;
           this.isLoading = false;
-          this.cdr.markForCheck();
-
           this.successMessage = true;
+          this.cdr.markForCheck();
+          this.scrollToFeedback();
 
           setTimeout(() => {
             this.successMessage = false;
@@ -126,6 +126,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
           this.isLoading = false;
           this.submitted = true;
           this.cdr.markForCheck();
+          this.scrollToFeedback();
 
           setTimeout(() => {
             this.errorMessage = false;
@@ -135,7 +136,19 @@ export class ContactFormComponent implements OnInit, OnDestroy {
       );
     } else {
       this.submitted = true;
+      this.cdr.markForCheck();
+      this.scrollToFeedback();
     }
+  }
+
+  private scrollToFeedback() {
+    // Laisse le DOM peindre le message avant de scroller
+    requestAnimationFrame(() => {
+      const target =
+        document.getElementById('contact') ||
+        document.querySelector('.contact-form-section');
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   }
 
   isFormValid(): boolean {

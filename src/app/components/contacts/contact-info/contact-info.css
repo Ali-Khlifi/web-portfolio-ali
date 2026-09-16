@@ -104,29 +104,45 @@
   .info-cards {
     flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 24px 40px;
+    flex-wrap: nowrap;
+    gap: 20px 28px;
   }
 
   .info-card {
     width: auto;
-    min-width: 120px;
+    min-width: 0;
+    flex: 1 1 0;
+    max-width: 120px;
   }
 }
 
 @media (max-width: 768px) {
   .info-cards {
-    flex-direction: column;
-    gap: 24px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .info-card {
+    flex: 1 1 0;
+    max-width: 110px;
+    gap: 8px;
   }
 
   .info-card-icon {
-    width: 72px;
-    height: 72px;
+    width: 64px;
+    height: 64px;
   }
 
   .info-card-icon svg {
-    width: 34px;
-    height: 34px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .info-card-title {
+    font-size: 0.85rem;
   }
 }
