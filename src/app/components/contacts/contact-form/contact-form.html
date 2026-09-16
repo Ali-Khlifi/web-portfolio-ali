@@ -1,6 +1,26 @@
-<div class="contact-form-section">
-  <h2 class="section-title">Envoyez-moi un Message</h2>
-  
+<div class="contact-form-section" [class.contact-form-section--from-sim]="!!prestationSummary">
+  <ng-container *ngIf="prestationSummary; else defaultContactTitle">
+    <p class="kes-step-tag">Étape 2</p>
+    <h2 class="section-title section-title--step">Finaliser la demande</h2>
+  </ng-container>
+  <ng-template #defaultContactTitle>
+    <h2 class="section-title">Envoyez-moi un Message</h2>
+  </ng-template>
+
+  <div class="prestation-bridge" *ngIf="prestationSummary">
+    <p class="prestation-bridge-kicker">Suite de votre simulation</p>
+    <p class="prestation-bridge-choice">
+      <strong>{{ prestationSummary.service }}</strong>
+      · {{ prestationSummary.context }}
+    </p>
+    <p class="prestation-bridge-help">
+      Sujet et message déjà préparés. Complétez vos coordonnées puis envoyez.
+    </p>
+    <button type="button" class="prestation-bridge-clear" (click)="clearPrestationSummary()">
+      Effacer la simulation
+    </button>
+  </div>
+
   <div class="success-message" *ngIf="successMessage">
     <div class="success-icon">✓</div>
     <p>Merci! Votre message a été reçu. Je vous répondrai très bientôt.</p>
@@ -12,60 +32,109 @@
   </div>
 
   <form [ngClass]="{ 'form-submitted': submitted }" (ngSubmit)="submitForm()" #contactForm="ngForm">
-    
-    <div class="form-group">
-      <label for="name" class="form-label">Nom *</label>
-      <input 
-        type="text" 
-        id="name" 
-        name="name"
-        class="form-input"
-        [class.error]="submitted && form.name.trim() === ''"
-        [(ngModel)]="form.name"
-        placeholder="Votre nom"
-        [disabled]="isLoading">
-      <span class="error-text" *ngIf="submitted && form.name.trim() === ''">Le nom est requis</span>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="firstName" class="form-label">Prénom *</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          class="form-input"
+          [class.error]="submitted && form.firstName.trim() === ''"
+          [(ngModel)]="form.firstName"
+          placeholder="Votre prénom"
+          [disabled]="isLoading"
+        >
+        <span class="error-text" *ngIf="submitted && form.firstName.trim() === ''">Le prénom est requis</span>
+      </div>
+
+      <div class="form-group">
+        <label for="name" class="form-label">Nom *</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          class="form-input"
+          [class.error]="submitted && form.name.trim() === ''"
+          [(ngModel)]="form.name"
+          placeholder="Votre nom"
+          [disabled]="isLoading"
+        >
+        <span class="error-text" *ngIf="submitted && form.name.trim() === ''">Le nom est requis</span>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="email" class="form-label">Email *</label>
-      <input 
-        type="email" 
+      <input
+        type="email"
         id="email"
         name="email"
         class="form-input"
         [class.error]="submitted && form.email.trim() === ''"
         [(ngModel)]="form.email"
         placeholder="votre.email@exemple.com"
-        [disabled]="isLoading">
+        [disabled]="isLoading"
+      >
       <span class="error-text" *ngIf="submitted && form.email.trim() === ''">L'email est requis</span>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="company" class="form-label">Raison sociale</label>
+        <input
+          type="text"
+          id="company"
+          name="company"
+          class="form-input"
+          [(ngModel)]="form.company"
+          placeholder="Nom de l’entreprise (optionnel)"
+          [disabled]="isLoading"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="website" class="form-label">Site web</label>
+        <input
+          type="url"
+          id="website"
+          name="website"
+          class="form-input"
+          [(ngModel)]="form.website"
+          placeholder="https://… (optionnel)"
+          [disabled]="isLoading"
+        >
+      </div>
     </div>
 
     <div class="form-group">
       <label for="subject" class="form-label">Sujet *</label>
-      <input 
-        type="text" 
+      <input
+        type="text"
         id="subject"
         name="subject"
         class="form-input"
         [class.error]="submitted && form.subject.trim() === ''"
         [(ngModel)]="form.subject"
-        placeholder="Sujet de votre message"
-        [disabled]="isLoading">
+        placeholder="Ex. Demande de prestation — TMA"
+        [disabled]="isLoading"
+      >
       <span class="error-text" *ngIf="submitted && form.subject.trim() === ''">Le sujet est requis</span>
     </div>
 
     <div class="form-group">
       <label for="message" class="form-label">Message *</label>
-      <textarea 
+      <textarea
         id="message"
         name="message"
         class="form-textarea"
         [class.error]="submitted && form.message.trim() === ''"
         [(ngModel)]="form.message"
-        placeholder="Votre message..."
+        placeholder="Décrivez votre besoin, le contexte et vos délais…"
         rows="6"
-        [disabled]="isLoading"></textarea>
+        [disabled]="isLoading"
+      ></textarea>
       <span class="error-text" *ngIf="submitted && form.message.trim() === ''">Le message est requis</span>
     </div>
 

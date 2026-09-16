@@ -1,12 +1,22 @@
 <div class="contacts-container">
-  <!-- Contact Info Component -->
-  <app-contact-info 
-    [email]="email"
-    [linkedinUrl]="linkedinUrl"
-    [linkedinName]="linkedinName"
-    [cvFile]="cvFile">
-  </app-contact-info>
+  <header class="section-header">
+    <h2 class="section-title">Contact</h2>
+    <p class="section-intro">
+      Après la simulation, finalisez ici — ou écrivez-moi directement pour toute autre demande.
+    </p>
+  </header>
 
-  <!-- Contact Form Component -->
-  <app-contact-form></app-contact-form>
+  <div class="contacts-stage">
+    <div class="contacts-form-col">
+      <app-contact-form></app-contact-form>
+    </div>
+    <aside class="contacts-info-col">
+      <app-contact-info
+        [email]="email"
+        [linkedinUrl]="linkedinUrl"
+        [linkedinName]="linkedinName"
+        [cvFile]="cvFile"
+      ></app-contact-info>
+    </aside>
+  </div>
 </div>

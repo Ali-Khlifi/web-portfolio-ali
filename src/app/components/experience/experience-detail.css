@@ -1,15 +1,15 @@
 .experience-detail-container {
   min-height: 100vh;
-  color: #333;
+  color: var(--text);
   padding: 40px;
-  padding-top: 40px;
+  background: var(--bg-black);
 }
 
 .cta-button {
   display: inline-block;
   padding: 12px 24px;
-  background: #5a5a5a;
-  color: white;
+  background: var(--accent);
+  color: var(--bg-black);
   border: none;
   border-radius: 8px;
   font-size: 0.95rem;
@@ -24,7 +24,7 @@
 .cta-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  background: #4a4a4a;
+  background: var(--accent-strong);
 }
 
 .detail-header {
@@ -36,7 +36,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin: 0 0 10px 0;
-  color: #000;
+  color: var(--text);
   letter-spacing: -0.5px;
 }
 
@@ -56,24 +56,24 @@
 }
 
 .detail-section {
-  background: white;
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 40px;
   margin-bottom: 30px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .section-title {
   font-size: 1.4rem;
   font-weight: 700;
   margin: 0 0 20px 0;
-  color: #000;
+  color: var(--accent);
 }
 
 .detail-section p {
   font-size: 1rem;
   line-height: 1.7;
-  color: #333;
+  color: var(--text-muted);
   margin: 0 0 15px 0;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .detail-section strong {
-  color: #000;
+  color: var(--text);
 }
 
 /* Two Columns */
@@ -101,7 +101,7 @@
   font-size: 1.1rem;
   font-weight: 600;
   margin: 0 0 15px 0;
-  color: #000;
+  color: var(--text);
 }
 
 .two-columns p {
@@ -118,9 +118,10 @@
 
 .tech-badge {
   display: inline-block;
-  background: #5fd45f;
-  color: white;
-  padding: 8px 16px;
+  background: rgba(9, 170, 171, 0.14);
+  color: var(--text);
+  border: 1px solid rgba(9, 170, 171, 0.45);
+  padding: 8px 14px;
   border-radius: 8px;
   font-size: 0.9rem;
   font-weight: 600;
@@ -165,7 +166,7 @@
 .tech-name {
   font-size: 0.8rem;
   font-weight: 600;
-  color: #333;
+  color: var(--text-muted);
   text-align: center;
   max-width: 70px;
   word-break: break-word;
@@ -183,7 +184,7 @@
 .skills-list li {
   font-size: 1rem;
   line-height: 1.8;
-  color: #333;
+  color: var(--text-muted);
   padding-left: 30px;
   position: relative;
   margin-bottom: 15px;

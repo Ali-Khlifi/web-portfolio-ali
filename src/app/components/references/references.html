@@ -1,0 +1,72 @@
+<div class="references-container">
+  <a routerLink="/" fragment="services" class="cta-button">< Retour aux services</a>
+
+  <ng-container *ngIf="serviceRefs; else missing">
+    <header class="detail-header">
+      <h1 class="detail-title">{{ serviceRefs.serviceTitle }}</h1>
+      <p class="detail-intro">{{ serviceRefs.intro }}</p>
+    </header>
+
+    <div class="detail-content">
+      <article *ngFor="let project of serviceRefs.projects" class="reference-card">
+        <h2 class="project-title">{{ project.title }}</h2>
+        <p class="project-subtitle">{{ project.subtitle }}</p>
+        <p class="section-text">{{ project.summary }}</p>
+
+        <section class="detail-block">
+          <h3 class="block-title">Contexte</h3>
+          <p class="section-text">{{ project.context }}</p>
+        </section>
+
+        <section class="detail-block">
+          <h3 class="block-title">Fonctionnalités</h3>
+          <ul class="features-list">
+            <li *ngFor="let feature of project.features">{{ feature }}</li>
+          </ul>
+        </section>
+
+        <section class="detail-block">
+          <h3 class="block-title">Stack technique</h3>
+          <div class="technologies-list">
+            <span *ngFor="let tech of project.technologies" class="tech-badge">{{ tech }}</span>
+          </div>
+        </section>
+
+        <div class="project-actions" *ngIf="project.liveLink || project.githubLink">
+          <a
+            *ngIf="project.liveLink"
+            class="action-link action-link--primary"
+            [href]="project.liveLink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Voir la démo
+          </a>
+          <a
+            *ngIf="project.githubLink"
+            class="action-link"
+            [href]="project.githubLink"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Code source
+          </a>
+        </div>
+        <p class="demo-creds" *ngIf="project.demoCredentials">
+          Accès démo : <strong>{{ project.demoCredentials }}</strong>
+        </p>
+      </article>
+
+      <div *ngIf="serviceRefs.projects.length === 0" class="reference-card reference-card--empty">
+        <p class="empty-message">Pas encore de référence pour cette offre.</p>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #missing>
+    <header class="detail-header">
+      <h1 class="detail-title">Référence introuvable</h1>
+      <p class="detail-intro">Cette page de références n’existe pas (encore).</p>
+    </header>
+  </ng-template>
+</div>

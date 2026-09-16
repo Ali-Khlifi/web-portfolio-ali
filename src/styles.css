@@ -1,1 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg-black: #0a0a0a;
+  --bg-teal: #1888a0;
+  --bg-orange: #e39b1a;
+  --bg-warm: #1888a0;
+  --card: #10262c;
+  --accent: #e39b1a;
+  --accent-strong: #f0b44a;
+  --brand-k: #09aaab;
+  --brand-e: #e39b1a;
+  --brand-s: #f0dab5;
+  --text: #f4efe6;
+  --text-muted: #d5ddd8;
+  --border: rgba(227, 155, 26, 0.35);
+  --card-radius: 16px;
+  --card-padding: 32px;
+  --card-border: 1px solid var(--border);
+  --card-shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.28);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-black);
+  color: var(--text);
+}
+
+/* Carte thème KES — référence = simulateur */
+.kes-card {
+  background: var(--card);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  box-sizing: border-box;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.kes-card:hover {
+  border-color: rgba(9, 170, 171, 0.5);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.kes-step-tag {
+  display: inline-block;
+  margin: 0 0 18px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--bg-black);
+  background: var(--brand-k);
+}

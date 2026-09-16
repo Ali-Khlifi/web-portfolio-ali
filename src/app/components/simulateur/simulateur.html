@@ -1,0 +1,53 @@
+<div class="simulateur-container">
+  <header class="section-header">
+    <h2 class="section-title">Simuler une prestation</h2>
+    <p class="section-intro">
+      Deux étapes : vous cadrez le besoin ici, puis vous finalisez dans Contact avec un message déjà préparé.
+    </p>
+  </header>
+
+  <div class="simulateur-card kes-card">
+    <p class="kes-step-tag">Étape 1</p>
+
+    <fieldset class="choice-group">
+      <legend>Offre</legend>
+      <div class="choice-list">
+        <button
+          *ngFor="let service of services"
+          type="button"
+          class="choice-chip"
+          [class.active]="selectedService === service"
+          (click)="selectService(service)"
+        >
+          {{ service }}
+        </button>
+      </div>
+    </fieldset>
+
+    <fieldset class="choice-group">
+      <legend>Contexte</legend>
+      <div class="choice-list">
+        <button
+          *ngFor="let context of contexts"
+          type="button"
+          class="choice-chip"
+          [class.active]="selectedContext === context"
+          (click)="selectContext(context)"
+        >
+          {{ context }}
+        </button>
+      </div>
+    </fieldset>
+
+    <p class="simulateur-summary">
+      Votre choix : <strong>{{ selectedService }}</strong> · {{ selectedContext }}
+    </p>
+
+    <a href="#contact" class="simulateur-cta" (click)="goToContact($event)">
+      Continuer vers Contact
+    </a>
+    <p class="simulateur-hint">
+      Le sujet et le message du formulaire seront préremplis avec ce choix.
+    </p>
+  </div>
+</div>

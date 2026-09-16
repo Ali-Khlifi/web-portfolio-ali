@@ -6,18 +6,18 @@ import { APP_VERSION } from '../../config/version';
   standalone: true,
   template: `
     <footer class="footer">
-      <p>© {{ currentYear }} Portfolio Ali v{{ appVersion }}</p>
+      <p>© {{ currentYear }} KHLIFI Engineering Services v{{ appVersion }}</p>
     </footer>
   `,
   styles: [`
     .footer {
-      position: fixed;
-      bottom: 5px;
-      right: auto;
-      left: 40px;
+      padding: 24px 40px;
       font-size: 14px;
-      color: #5a5a5a;
+      color: var(--text-muted);
       font-family: Arial, sans-serif;
+      text-align: center;
+      background: var(--bg-black);
+      border-top: 1px solid var(--border);
     }
     @media (max-width: 768px) {
       .footer {

@@ -1,19 +1,27 @@
 <nav class="navbar">
   <div class="navbar-container">
-    <!-- Menu Toggle Button (Mobile) -->
-    <button class="navbar-toggle" (click)="toggleMenu()">
+    <a href="#accueil" class="navbar-brand" (click)="goToSection($event, 'accueil')">
+      <img src="assets/img/kes-logo.png" alt="KES" class="navbar-logo">
+      <span class="navbar-brand-text">
+        <span class="brand-k">K</span>HLIFI
+        <span class="brand-e">E</span>NGINEERING
+        <span class="brand-s">S</span>ERVICES
+      </span>
+    </a>
+
+    <button class="navbar-toggle" type="button" (click)="toggleMenu()" aria-label="Ouvrir le menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
 
-    <!-- Navigation Links -->
     <ul class="navbar-menu" [class.active]="menuOpen">
       <li *ngFor="let item of navItems">
-        <a [routerLink]="item.link" 
-           routerLinkActive="active"
-           [routerLinkActiveOptions]="{ exact: true }"
-           (click)="menuOpen = false">
+        <a
+          [href]="'#' + item.fragment"
+          [class.active]="activeSection === item.fragment"
+          (click)="goToSection($event, item.fragment)"
+        >
           {{ item.name }}
         </a>
       </li>

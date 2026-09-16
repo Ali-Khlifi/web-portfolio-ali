@@ -9,17 +9,14 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.css',
 })
 export class HomeComponent {
-  // Nom et informations
-  firstName = 'Ali';
-  lastName = 'KHLIFI';
-  
-  // Texte descriptif
-  description = `Diplômé de l'Université Grenoble Alpes, je conçois des applications complètes, de la base de données à l'interface utilisateur. Spring Boot, Angular, Kubernetes : ma signature technique pour des projets qui voyagent du code jusqu'à la production.`;
+  description =
+    'Je suis Ali KHLIFI, développeur freelance fullstack. Sous la marque KHLIFI ENGINEERING SERVICES (KES), j’accompagne vos projets web depuis la conception jusqu’à la mise en production.';
 
-  // Entreprises avec lesquelles il a travaillé
-  companies = [
-    { name: 'coexya', url: 'https://www.coexya.eu/en/', logo: 'assets/img/LogoCoexya.png' },
-    { name: 'smile', url: 'https://smile.eu/fr', logo: 'assets/img/Logo_Smile.png' },
-    { name: 'atolcd', url: 'https://www.atolcd.com/', logo: 'assets/img/atolcd.png' }
-  ];
+  email = 'alikhlifi.kh@gmail.com';
+  linkedinUrl = 'https://www.linkedin.com/in/ali-k-77b60a148/';
+
+  goToSection(event: Event, fragment: string) {
+    event.preventDefault();
+    document.getElementById(fragment)?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

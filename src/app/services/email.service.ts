@@ -2,44 +2,53 @@ import { Injectable } from '@angular/core';
 import emailjs from '@emailjs/browser';
 
 export interface EmailData {
+  firstName: string;
   name: string;
   email: string;
+  company: string;
+  website: string;
   subject: string;
   message: string;
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EmailService {
-  // Configuration EmailJS - Clés de configuration
   private SERVICE_ID = 'service_d5xreja';
   private TEMPLATE_ID = 'template_tft04ew';
   private PUBLIC_KEY = 'CHftj17xDX7KmFCb2';
 
   constructor() {
-    // Initialiser EmailJS avec la clé publique
     emailjs.init(this.PUBLIC_KEY);
   }
 
-  /**
-   * Envoie un email de contact
-   * @param data Les données du formulaire
-   * @returns Promise<Response>
-   */
   sendContactEmail(data: EmailData): Promise<any> {
+    const fullName = `${data.firstName.trim()} ${data.name.trim()}`.trim();
+    const extras: string[] = [];
+    if (data.company.trim()) {
+      extras.push(`Raison sociale : ${data.company.trim()}`);
+    }
+    if (data.website.trim()) {
+      extras.push(`Site web : ${data.website.trim()}`);
+    }
+
+    const messageBody = extras.length
+      ? `${extras.join('\n')}\n\n${data.message}`
+      : data.message;
+
     const templateParams = {
       to_email: 'alikhlifi.kh@gmail.com',
-      from_name: data.name,
+      from_name: fullName,
       from_email: data.email,
+      first_name: data.firstName.trim(),
+      last_name: data.name.trim(),
+      company: data.company.trim() || '—',
+      website: data.website.trim() || '—',
       subject: data.subject,
-      message: data.message
+      message: messageBody,
     };
 
-    return emailjs.send(
-      this.SERVICE_ID,
-      this.TEMPLATE_ID,
-      templateParams
-    );
+    return emailjs.send(this.SERVICE_ID, this.TEMPLATE_ID, templateParams);
   }
 }

@@ -1,29 +1,53 @@
-<div class="dashboard-container">
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="hero-content">
-      <div class="text-section">
-        <h1 class="hero-title">{{ firstName }} {{ lastName }}</h1>
-        <p class="hero-description">{{ description }}</p>
-      </div>
-      
-      <div class="photo-section">
-        <img src="assets/img/photo.png" alt="Photo de profil" class="profile-photo">
-      </div>
-    </div>
-  </section>
+<div class="home-container">
+  <section class="company-hero">
+    <img
+      class="company-logo"
+      src="assets/img/kes-logo.png"
+      alt="Logo KHLIFI ENGINEERING SERVICES"
+    >
 
-  <!-- Companies Section -->
-  <section class="companies-section">
-    <h2 class="companies-title">Travaillé avec</h2>
-    <div class="companies-container">
-      <a *ngFor="let company of companies" 
-         [href]="company.url" 
-         target="_blank" 
-         class="company-link"
-         [title]="company.name">
-        <img [src]="company.logo" [alt]="company.name" class="company-logo-img">
-      </a>
+    <div class="company-divider" aria-hidden="true"></div>
+
+    <div class="company-copy">
+      <h1 class="company-title">
+        <span class="brand-k">K</span>HLIFI
+        <span class="brand-e">E</span>NGINEERING
+        <span class="brand-s">S</span>ERVICES
+      </h1>
+
+      <p class="company-description">{{ description }}</p>
+
+      <div class="company-actions">
+        <a href="#contact" class="company-link-secondary" (click)="goToSection($event, 'contact')">Me contacter</a>
+
+        <a
+          class="company-icon-link"
+          [href]="'mailto:' + email"
+          aria-label="Envoyer un email"
+          title="Email"
+        >
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+            <path d="m3 7 9 6 9-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+
+        <a
+          class="company-icon-link"
+          [href]="linkedinUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Profil LinkedIn"
+          title="LinkedIn"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6M2 9h4v12H2z"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+      </div>
     </div>
+
+    <div class="company-edge" aria-hidden="true"></div>
   </section>
 </div>

@@ -26,11 +26,11 @@ export class ScrollNavigationService {
   }
 
   /**
-   * Initialise le listener de scroll pour une navigation fluide et continue
-   * Permet de scroller à travers toutes les pages sans interruption
+   * Ancienne navigation page par page au scroll.
+   * Désactivée : le site est désormais une page unique à défilement vertical.
    */
   initScrollListener() {
-    window.addEventListener('wheel', (event) => this.handleScroll(event), { passive: true });
+    return;
   }
 
   /**
