@@ -57,7 +57,7 @@ export class ExperienceComponent {
 
   /** Courbe type exponentielle inversée : montée rapide puis assouplissement. */
   journeyStops: JourneyStop[] = this.buildCurveStops([
-    { place: 'Tunisie', master: 'Génie hydraulique', year: '2017', yearNum: 2017 },
+    { place: 'Tunisie', master: 'Ingénieur civil', year: '2017', yearNum: 2017 },
     { place: 'Toulouse', master: 'Master géomatique', year: '2022', yearNum: 2022 },
     { place: 'Grenoble', master: 'Master informatique', year: '2023', yearNum: 2023 },
     {
