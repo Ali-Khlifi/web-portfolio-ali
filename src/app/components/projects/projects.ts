@@ -30,7 +30,7 @@ export class ProjectsComponent {
       imageUrl: 'assets/img/cinema.jpg',
       technologies: ['Angular', 'TypeScript', 'Spring Boot', 'Java 17', 'PostgreSQL', 'Keycloak', 'OAuth2', 'Docker', 'Nginx'],
       skills: ['Architecture microservices', 'DevOps (Docker, VPS)', 'Sécurité (OAuth2, JWT)', 'Gestion Git multi-dépôts'],
-      liveLink: 'http://cinema.alikhlifi.ovh',
+      liveLink: 'https://cinema.alikhlifi.ovh',
       githubLink: 'https://gitlab.com/akhlifi-group'
     }
   ];

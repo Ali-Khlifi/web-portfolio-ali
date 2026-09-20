@@ -64,7 +64,7 @@ export class ReferencesComponent implements OnInit {
             'Docker',
             'Nginx',
           ],
-          liveLink: 'http://cinema.alikhlifi.ovh',
+          liveLink: 'https://cinema.alikhlifi.ovh',
           demoCredentials: 'test@example.com / Test123!',
           githubLink: 'https://gitlab.com/akhlifi-group',
         },
