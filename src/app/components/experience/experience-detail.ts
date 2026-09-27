@@ -26,7 +26,7 @@ interface Experience {
   imports: [CommonModule, RouterLink],
   template: `
     <div class="experience-detail-container">
-      <a routerLink="/" fragment="parcours" class="cta-button">< Retour au parcours</a>
+      <a routerLink="/" fragment="experiences" class="cta-button">< Retour aux expériences</a>
 
       <div class="detail-header" *ngIf="experience">
         <h1 class="detail-title">{{ experience.presentation }}</h1>

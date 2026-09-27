@@ -1,0 +1,23 @@
+<div class="experiences-container">
+  <header class="section-header">
+    <h2 class="section-title">Expériences professionnelles</h2>
+    <p class="section-intro">{{ experiencesLead }}</p>
+  </header>
+
+  <div class="experiences-grid">
+    <a
+      *ngFor="let exp of experiences"
+      [routerLink]="['/experience', exp.id]"
+      class="experience-card kes-card"
+    >
+      <div class="card-image-wrapper">
+        <img [src]="exp.logo" [alt]="exp.company" class="card-image">
+      </div>
+      <div class="card-content">
+        <h3 class="card-title">{{ exp.title }}</h3>
+        <p class="card-duration">{{ exp.duration }}</p>
+        <p class="card-description">{{ exp.shortDescription }}</p>
+      </div>
+    </a>
+  </div>
+</div>

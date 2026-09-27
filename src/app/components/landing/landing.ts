@@ -2,6 +2,7 @@ import { AfterViewInit, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HomeComponent } from '../home/home';
 import { ExperienceComponent } from '../experience/experience';
+import { ExperiencesComponent } from '../experiences/experiences';
 import { ServicesComponent } from '../services/services';
 import { SimulateurComponent } from '../simulateur/simulateur';
 import { ContactsComponent } from '../contacts/contacts';
@@ -9,7 +10,14 @@ import { ContactsComponent } from '../contacts/contacts';
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [HomeComponent, ExperienceComponent, ServicesComponent, SimulateurComponent, ContactsComponent],
+  imports: [
+    HomeComponent,
+    ExperienceComponent,
+    ExperiencesComponent,
+    ServicesComponent,
+    SimulateurComponent,
+    ContactsComponent,
+  ],
   templateUrl: './landing.html',
   styleUrl: './landing.css',
 })
