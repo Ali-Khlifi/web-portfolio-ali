@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     { name: 'Parcours', fragment: 'parcours' },
     { name: 'Expériences', fragment: 'experiences' },
     { name: 'Services', fragment: 'services' },
-    { name: 'Simuler une prestation', fragment: 'simulateur' },
+    { name: 'Prestation', fragment: 'simulateur' },
     { name: 'Contact', fragment: 'contact' },
   ];
 
