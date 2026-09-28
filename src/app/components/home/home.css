@@ -13,25 +13,29 @@
 }
 
 .company-hero {
+  position: relative;
   display: grid;
-  grid-template-columns: auto 2px minmax(0, 1fr) 2px auto;
+  grid-template-columns: auto 2px minmax(0, 640px);
   align-items: center;
-  gap: 36px 32px;
-  width: min(100%, 1180px);
+  gap: 36px 40px;
+  width: min(100%, 1120px);
   margin: 0 auto;
+  padding-right: 28px;
 }
 
 .company-logo {
-  width: 220px;
-  height: 220px;
+  width: 240px;
+  height: 240px;
   object-fit: contain;
   justify-self: center;
+  margin-left: 28px;
+  transform: translateX(18px);
 }
 
 .company-divider {
   width: 2px;
   align-self: stretch;
-  min-height: 200px;
+  min-height: 220px;
   border-radius: 2px;
   background: linear-gradient(
     180deg,
@@ -48,7 +52,7 @@
 
 .company-title {
   margin: 0 0 18px;
-  font-size: clamp(1.25rem, 2.2vw, 2rem);
+  font-size: clamp(1.35rem, 2.4vw, 2.15rem);
   font-weight: 400;
   letter-spacing: 0.5px;
   line-height: 1.2;
@@ -133,56 +137,42 @@
   color: var(--bg-black);
 }
 
-.company-photo {
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  object-position: center 20%;
-  border-radius: 50%;
-  justify-self: center;
-  border: 2px solid rgba(9, 170, 171, 0.55);
-  box-shadow: 0 0 0 6px rgba(227, 155, 26, 0.12);
-  background: #1a1d21;
-}
-
-@media (max-width: 1100px) {
-  .company-hero {
-    gap: 28px 22px;
-  }
-
-  .company-logo,
-  .company-photo {
-    width: 180px;
-    height: 180px;
-  }
-
-  .company-title {
-    white-space: normal;
-  }
+.company-edge {
+  position: absolute;
+  right: 0;
+  top: 8%;
+  bottom: 8%;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(9, 170, 171, 0.55) 30%,
+    rgba(227, 155, 26, 0.45) 70%,
+    transparent
+  );
 }
 
 @media (max-width: 900px) {
   .company-hero {
     grid-template-columns: 1fr;
     gap: 24px;
+    padding-right: 0;
     justify-items: center;
     text-align: center;
   }
 
-  .company-divider {
+  .company-divider,
+  .company-edge {
     display: none;
   }
 
-  .company-photo {
-    order: -1;
-    width: 140px;
-    height: 140px;
-  }
-
   .company-logo {
-    width: 160px;
-    height: 160px;
-    order: -2;
+    width: 180px;
+    height: 180px;
+    margin-left: 0;
+    transform: none;
+    justify-self: center;
   }
 
   .company-copy {
@@ -211,13 +201,10 @@
   }
 
   .company-logo {
-    width: 140px;
-    height: 140px;
-  }
-
-  .company-photo {
-    width: 120px;
-    height: 120px;
+    width: 160px;
+    height: 160px;
+    margin-left: 0;
+    transform: none;
   }
 
   .company-title {

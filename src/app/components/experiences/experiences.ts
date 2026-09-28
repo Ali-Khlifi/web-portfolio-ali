@@ -30,7 +30,7 @@ export class ExperiencesComponent {
       duration: 'Juillet 2026 – Aujourd’hui',
       shortDescription:
         'TMA de la plateforme Légifrance et contribution au module Mon Compte Légifrance : authentification et gestion de compte via Keycloak, en binôme avec le tech lead.',
-      logo: 'assets/img/LogoCoexya.png',
+      logo: 'assets/img/logo-dila.png',
     },
     {
       id: 'coexya-mobilite-aix',
@@ -39,7 +39,7 @@ export class ExperiencesComponent {
       duration: 'Août 2023 – Mars 2025',
       shortDescription:
         'Conception et développement du module d’inscription scolaire de la plateforme MaaS — compte de mobilité unifié pour la Métropole Aix-Marseille-Provence.',
-      logo: 'assets/img/LogoCoexya.png',
+      logo: 'assets/img/logo-metropole-mobilite.png',
     },
     {
       id: 'coexya-hdf-mobilite',
@@ -48,7 +48,7 @@ export class ExperiencesComponent {
       duration: 'Août 2023 – Mars 2025',
       shortDescription:
         'Refonte de la plateforme web et mobile de vente de titres de transport et d’abonnements pour Hauts-de-France Mobilités.',
-      logo: 'assets/img/LogoCoexya.png',
+      logo: 'assets/img/logo-hdf-mobilites.png',
     },
     {
       id: 'smile-skillquiz',
@@ -66,7 +66,7 @@ export class ExperiencesComponent {
       duration: 'Mars 2022 – Septembre 2022',
       shortDescription:
         'Contribution au développement d’une application dédiée à la gestion des appels d’urgence pour les préfectures.',
-      logo: 'assets/img/atolcd.png',
+      logo: 'assets/img/logo-tnaau.png',
     },
   ];
 }

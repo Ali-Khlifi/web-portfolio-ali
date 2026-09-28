@@ -11,6 +11,7 @@ interface Experience {
   logo: string;
   presentation: string;
   context: string;
+  website?: string;
   objectives: string;
   team: string;
   methodology: string;
@@ -39,6 +40,15 @@ interface Experience {
         <section class="detail-section">
           <h2 class="section-title">📋 Contexte</h2>
           <p class="section-text">{{ experience.context }}</p>
+          <p class="section-website" *ngIf="experience.website">
+            Site :
+            <a
+              [href]="experience.website"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="website-link"
+            >{{ experience.website }}</a>
+          </p>
         </section>
 
         <!-- Teams -->
@@ -78,10 +88,11 @@ export class ExperienceDetailComponent implements OnInit {
       duration: 'Juillet 2026 – Aujourd’hui',
       shortDescription:
         'TMA de la plateforme Légifrance et contribution au module Mon Compte Légifrance : authentification et gestion de compte via Keycloak, en binôme avec le tech lead.',
-      logo: 'assets/img/LogoCoexya.png',
+      logo: 'assets/img/logo-dila.png',
       presentation: 'Légifrance — Mon Compte',
       context:
         'Mission chez la DILA sur legifrance.gouv.fr : TMA de la plateforme Légifrance et contribution au module Mon Compte Légifrance (authentification et gestion de compte via Keycloak)',
+      website: 'https://www.legifrance.gouv.fr/',
       objectives:
         'Assurer la TMA Légifrance et faire évoluer Mon Compte (identité, SSO, APIs) de façon fiable et maintenable.',
       team: 'Équipe de 12 personnes',
@@ -124,10 +135,11 @@ export class ExperienceDetailComponent implements OnInit {
       duration: 'Août 2023 – Mars 2025',
       shortDescription:
         'Conception et développement du module d’inscription scolaire de la plateforme MaaS — compte de mobilité unifié pour la Métropole Aix-Marseille-Provence.',
-      logo: 'assets/img/LogoCoexya.png',
+      logo: 'assets/img/logo-metropole-mobilite.png',
       presentation: 'Projet MAMP — Inscription scolaire MaaS',
       context:
         'Conception et développement du module d’inscription scolaire de la plateforme MaaS — compte de mobilité unifié pour la Métropole Aix-Marseille-Provence (lametropolemobilite.fr).',
+      website: 'https://www.lametropolemobilite.fr/',
       objectives:
         'Livrer le module d’inscription scolaire et les APIs associées sur une plateforme MaaS scalable et sécurisée.',
       team:
@@ -173,10 +185,11 @@ export class ExperienceDetailComponent implements OnInit {
       duration: 'Août 2023 – Mars 2025',
       shortDescription:
         'Refonte de la plateforme web et mobile de vente de titres de transport et d’abonnements pour Hauts-de-France Mobilités.',
-      logo: 'assets/img/LogoCoexya.png',
+      logo: 'assets/img/logo-hdf-mobilites.png',
       presentation: 'Projet PassPass',
       context:
         'Refonte de la plateforme web et mobile de vente de titres de transport et d’abonnements (passpass.fr) pour Hauts-de-France Mobilités.',
+      website: 'https://passpass.fr/',
       objectives:
         'Moderniser la vente de titres et d’abonnements avec une architecture microservices fiable.',
       team:
@@ -261,10 +274,11 @@ export class ExperienceDetailComponent implements OnInit {
       duration: 'Mars 2022 – Septembre 2022',
       shortDescription:
         'Contribution au développement d’une application dédiée à la gestion des appels d’urgence pour les préfectures.',
-      logo: 'assets/img/atolcd.png',
+      logo: 'assets/img/logo-tnaau.png',
       presentation: 'Gestion des appels d’urgence',
       context:
         'Contribution au développement d’une application dédiée à la gestion des appels d’urgence pour les préfectures.',
+      website: 'https://www.oce-tnaau.interieur.gouv.fr/#/',
       objectives:
         'Concevoir et livrer des services web REST et des fonctionnalités métier (formulaires, fichiers ODS).',
       team: 'Stage — Dijon',

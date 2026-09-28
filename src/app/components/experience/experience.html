@@ -30,36 +30,30 @@
       <h2 class="section-title">Certifications</h2>
 
       <ul class="certs-list">
-        <li
-          *ngFor="let cert of certifications"
-          class="cert-badge-card"
-          [attr.data-brand]="cert.brand"
-        >
-          <div class="cert-date-box" aria-hidden="true">
-            <span>{{ cert.month }}</span>
-            <span>{{ cert.year }}</span>
-          </div>
-
-          <div class="cert-hex" aria-hidden="true">
-            <div class="cert-hex-inner">
-              <span class="cert-hex-brand">
-                {{ cert.brand === 'aws' ? 'aws' : 'amideast' }}
-                <span class="cert-hex-check" *ngIf="cert.brand === 'aws'">✓</span>
-              </span>
-              <span class="cert-hex-sub" *ngIf="cert.brand === 'aws'">certified</span>
-              <strong class="cert-hex-title">{{ cert.badgeTitle }}</strong>
-              <span class="cert-hex-level">{{ cert.badgeLevel }}</span>
-            </div>
-          </div>
-
-          <p class="cert-badge-label">{{ cert.label }}</p>
-
+        <li *ngFor="let cert of certifications">
           <button
             type="button"
-            class="cert-view-btn"
+            class="cert-badge-card"
+            [attr.data-brand]="cert.brand"
+            [attr.aria-label]="'Voir le certificat ' + cert.label"
             (click)="openCert(cert, $event)"
           >
-            View
+            <div class="cert-date-box" aria-hidden="true">
+              <span>{{ cert.month }}</span>
+              <span>{{ cert.year }}</span>
+            </div>
+
+            <div class="cert-hex" aria-hidden="true">
+              <div class="cert-hex-inner">
+                <span class="cert-hex-brand">
+                  {{ cert.brand === 'aws' ? 'aws' : 'amideast' }}
+                  <span class="cert-hex-check" *ngIf="cert.brand === 'aws'">✓</span>
+                </span>
+                <span class="cert-hex-sub" *ngIf="cert.brand === 'aws'">certified</span>
+                <strong class="cert-hex-title">{{ cert.badgeTitle }}</strong>
+                <span class="cert-hex-level">{{ cert.badgeLevel }}</span>
+              </div>
+            </div>
           </button>
         </li>
       </ul>
