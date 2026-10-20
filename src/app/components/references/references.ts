@@ -12,7 +12,7 @@ interface ReferenceProject {
   technologies: string[];
   liveLink?: string;
   demoCredentials?: string;
-  githubLink?: string;
+  githubLinks?: { label: string; url: string }[];
 }
 
 interface ServiceReferences {
@@ -66,7 +66,16 @@ export class ReferencesComponent implements OnInit {
           ],
           liveLink: 'https://cinema.alikhlifi.ovh',
           demoCredentials: 'test@example.com / Test123!',
-          githubLink: 'https://gitlab.com/akhlifi-group',
+          githubLinks: [
+            {
+              label: 'cinema-api',
+              url: 'https://github.com/Ali-Khlifi/cinema-api',
+            },
+            {
+              label: 'cinema-front',
+              url: 'https://github.com/Ali-Khlifi/cinema-front',
+            },
+          ],
         },
       ],
     },

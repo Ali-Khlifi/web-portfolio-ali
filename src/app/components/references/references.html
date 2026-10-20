@@ -32,7 +32,10 @@
           </div>
         </section>
 
-        <div class="project-actions" *ngIf="project.liveLink || project.githubLink">
+        <div
+          class="project-actions"
+          *ngIf="project.liveLink || (project.githubLinks && project.githubLinks.length)"
+        >
           <a
             *ngIf="project.liveLink"
             class="action-link action-link--primary"
@@ -43,18 +46,30 @@
             Voir la démo
           </a>
           <a
-            *ngIf="project.githubLink"
-            class="action-link"
-            [href]="project.githubLink"
+            *ngFor="let repo of project.githubLinks"
+            class="action-link action-link--github"
+            [href]="repo.url"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Code source
+            <i class="bx bxl-github" aria-hidden="true"></i>
+            <span>Code source — {{ repo.label }}</span>
           </a>
         </div>
-        <p class="demo-creds" *ngIf="project.demoCredentials">
-          Accès démo : <strong>{{ project.demoCredentials }}</strong>
-        </p>
+
+        <div class="demo-access" *ngIf="project.liveLink && project.demoCredentials">
+          <div class="demo-access-cue" aria-hidden="true">
+            <svg class="demo-access-hand" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2a2 2 0 0 0-2 2v8.5l-.7-.7a2 2 0 0 0-2.8 2.8l4.2 4.2a3 3 0 0 0 4.2 0l3.5-3.5a2 2 0 0 0-2.8-2.8l-.6.6V4a2 2 0 0 0-2-2z"
+              />
+            </svg>
+            <span class="demo-access-label">Identifiants pour vous connecter</span>
+          </div>
+          <p class="demo-creds">
+            Accès démo : <strong>{{ project.demoCredentials }}</strong>
+          </p>
+        </div>
       </article>
 
       <div *ngIf="serviceRefs.projects.length === 0" class="reference-card reference-card--empty">

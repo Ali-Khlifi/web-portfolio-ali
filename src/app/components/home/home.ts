@@ -14,6 +14,9 @@ export class HomeComponent {
 
   email = 'alikhlifi.kh@gmail.com';
   linkedinUrl = 'https://www.linkedin.com/in/ali-k-77b60a148/';
+  githubUrl = 'https://github.com/Ali-Khlifi';
+  phone = '+33758624077';
+  phoneDisplay = '07 58 62 40 77';
 
   goToSection(event: Event, fragment: string) {
     event.preventDefault();
